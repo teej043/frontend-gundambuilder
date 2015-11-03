@@ -1,0 +1,49 @@
+
+/*
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Cherry+Swash);
+*/
+
+@font-face {
+  font-family: 'Norwester';
+  src: url('../fonts/norwester.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/norwester.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/norwester.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/norwester.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/norwester.svg#svgNorwester') format('svg'); /* Legacy iOS */
+}
+
+
+@font-face {
+    font-family: 'hattori_hanzolight';
+    src: url('../fonts/Hattori_Hanzo-webfont.eot');
+    src: url('../fonts/Hattori_Hanzo-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Hattori_Hanzo-webfont.woff') format('woff'),
+         url('../fonts/Hattori_Hanzo-webfont.ttf') format('truetype'),
+         url('../fonts/Hattori_Hanzo-webfont.svg#hattori_hanzolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face{
+	font-family: 'clearsans_light';
+    src: url('../fonts/ClearSans-Light.eot');
+    src: url('../fonts/ClearSans-Light.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ClearSans-Light.woff') format('woff'),
+         url('../fonts/ClearSans-Light.ttf') format('truetype'),
+         url('../fonts/ClearSans-Light.svg#clearsans_light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+	font-family: 'clearsans_bold';
+    src: url('../fonts/ClearSans-Bold.eot');
+    src: url('../fonts/ClearSans-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ClearSans-Bold.woff') format('woff'),
+         url('../fonts/ClearSans-Bold.ttf') format('truetype'),
+         url('../fonts/ClearSans-Bold.svg#clearsans_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

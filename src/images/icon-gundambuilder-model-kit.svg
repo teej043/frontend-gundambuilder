@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X6 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="32px" height="32px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 898 898"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil1 {fill:#FEFEFE}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="898" height="898"/>
+  <path class="fil1" d="M398 358c38,6 69,35 78,72l179 0 0 -107 -58 0c-13,-4 -10,-32 0,-32l58 0 0 -58c0,-12 -5,-23 -13,-32l0 0c-8,-8 -19,-13 -32,-13l-70 0 0 41c0,14 -32,13 -32,0l0 -41 -111 0 0 103 66 0c20,0 26,32 0,32l-66 0 0 35zm283 -124l75 0c25,0 45,20 45,45l0 351c0,25 -20,45 -45,45l-77 0c-3,14 -10,26 -19,35l0 0 0 0c-13,13 -30,21 -50,21l-212 0 0 1 -32 0 0 -1 -201 0c-19,0 -37,-8 -50,-21l0 0 0 0c-13,-13 -21,-30 -21,-50l0 -427c0,-19 8,-37 21,-50l0 0 0 0c13,-13 30,-21 50,-21l445 0c19,0 37,8 50,21l0 0 0 0c13,13 21,30 21,50l0 2zm14 90l15 -4 0 -27 -15 -4 0 -14 76 23 0 20 -76 23 0 -16zm62 -17l-36 -10 0 20 36 -10zm-217 357c0,-14 -32,-13 -32,0l0 41 -111 0 0 -103 66 0c20,0 26,-32 0,-32l-66 0 0 -19c43,-7 77,-43 81,-88l176 0 0 107 -58 0c-13,4 -10,32 0,32l58 0 0 58c0,12 -5,23 -13,32l0 0c-8,8 -19,13 -32,13l-70 0 0 -41zm-286 0c0,-14 -32,-13 -32,0l0 41 -58 0c-12,0 -23,-5 -32,-13l0 0c-8,-8 -13,-19 -13,-32l0 -58 58 0c20,0 26,-32 0,-32l-58 0 0 -107 164 0c4,45 37,81 81,88l0 19 -55 0c-13,4 -10,32 0,32l55 0 0 103 -111 0 0 -41zm0 -435c0,14 -32,13 -32,0l0 -41 -58 0c-12,0 -23,5 -32,13l0 0c-8,8 -13,19 -13,32l0 58 58 0c20,0 26,32 0,32l-58 0 0 107 167 0c9,-37 40,-66 78,-72l0 -35 -55 0c-13,-4 -10,-32 0,-32l55 0 0 -103 -111 0 0 41zm127 160c36,0 65,29 65,65 0,36 -29,65 -65,65 -36,0 -65,-29 -65,-65 0,-36 29,-65 65,-65z"/>
+ </g>
+</svg>
