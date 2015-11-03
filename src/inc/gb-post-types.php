@@ -3,10 +3,10 @@
 /* ========================= MOBILE SUITS =========================== */
 function post_type_mobile_suit() {
 register_post_type(
-	'mobile-suit', 
+	'mobile-suit',
 	array( 'public' => true,
 			'publicly_queryable' => true,
-			'has_archive' => true, 
+			'has_archive' => true,
 			'hierarchical' => true,
 			'menu_icon' => get_stylesheet_directory_uri() . '/images/icon-gundambuilder-mobile-suit.svg',
 			'labels'=>array(
@@ -19,12 +19,13 @@ register_post_type(
 						'view_item' => __('View Mobile Suit'),
 						'search_items' => __('Search Mobile Suits'),
 						'not_found' =>  __('No Mobile Suits found'),
-						'not_found_in_trash' => __('No Mobile Suits found in Trash'), 
+						'not_found_in_trash' => __('No Mobile Suits found in Trash'),
 						'parent_item_colon' => ''
-						),							 
+						),
 			'show_ui' => true,
 			'menu_position'=>5,
 			'query_var' => true,
+			'exclude_from_search' => false,
 			'capability_type' => 'post',
 			'rewrite' => array('with_front' => FALSE, 'feeds' => TRUE),
 			'supports' => array(
@@ -36,15 +37,15 @@ register_post_type(
 						'thumbnail',
 						'page-attributes'
 						),
-			'taxonomies' => array('post_tag','category')	
-			) 
+			'taxonomies' => array('post_tag','category')
+			)
 	);
-} 
+}
 add_action('init', 'post_type_mobile_suit');
 
 
 /*==== TAXONOMY : MOBILE SUIT SERIES =======*/
-function create_gundam_series_taxonomy() 
+function create_gundam_series_taxonomy()
 {
 $labels = array(
 	  'name' => _x( 'Gundam Series', 'taxonomy general name' ),
@@ -53,11 +54,11 @@ $labels = array(
 	  'all_items' => __( 'All Gundam Series' ),
 	  'parent_item' => __( 'Parent Gundam Series' ),
 	  'parent_item_colon' => __( 'Parent Gundam Series:' ),
-	  'edit_item' => __( 'Edit Gundam Series' ), 
+	  'edit_item' => __( 'Edit Gundam Series' ),
 	  'update_item' => __( 'Update Gundam Series' ),
 	  'add_new_item' => __( 'Add Gundam Series' ),
 	  'new_item_name' => __( 'New Gundam Series' ),
-); 	
+);
 register_taxonomy('gundam-series',array('mobile-suit'), array(
     'hierarchical' => true,
     'labels' => $labels,
@@ -329,10 +330,10 @@ add_action( 'init', 'add_series_term_gs' );
 /* ========================= MODEL KITS =========================== */
 function post_type_model_kit() {
 register_post_type(
-	'model-kit', 
+	'model-kit',
 	array( 'public' => true,
 			'publicly_queryable' => true,
-			'has_archive' => true, 
+			'has_archive' => true,
 			'hierarchical' => true,
 			'menu_icon' => get_stylesheet_directory_uri() . '/images/icon-gundambuilder-model-kit.svg',
 			'labels'=>array(
@@ -345,12 +346,13 @@ register_post_type(
 						'view_item' => __('View Model Kit'),
 						'search_items' => __('Search Model Kits'),
 						'not_found' =>  __('No Model Kits found'),
-						'not_found_in_trash' => __('No Model Kits found in Trash'), 
+						'not_found_in_trash' => __('No Model Kits found in Trash'),
 						'parent_item_colon' => ''
-						),							 
+						),
 			'show_ui' => true,
 			'menu_position'=>5,
 			'query_var' => 'modelkit',
+			'exclude_from_search' => false,
 			'capability_type' => 'post',
 			'rewrite' => array( 'with_front' => FALSE, 'feeds' => TRUE),
 			'supports' => array(
@@ -361,10 +363,10 @@ register_post_type(
 						'custom-fields',
 						'thumbnail'
 						),
-			'taxonomies' => array('post_tag')	
-			) 
+			'taxonomies' => array('post_tag')
+			)
 	);
-} 
+}
 add_action('init', 'post_type_model_kit');
 
 
@@ -372,11 +374,12 @@ add_action('init', 'post_type_model_kit');
 /* ========================= MODELS =========================== */
 function post_type_model() {
 register_post_type(
-	'model', 
+	'model',
 	array( 'public' => true,
 			'publicly_queryable' => true,
-			'has_archive' => true, 
+			'has_archive' => true,
 			'hierarchical' => true,
+			'exclude_from_search' => false,
 			'menu_icon' => get_stylesheet_directory_uri() . '/images/icon-gundambuilder-model.svg',
 			'labels'=>array(
 						'name' => _x('Models', 'post type general name'),
@@ -388,9 +391,9 @@ register_post_type(
 						'view_item' => __('View Model'),
 						'search_items' => __('Search Model'),
 						'not_found' =>  __('No Models found'),
-						'not_found_in_trash' => __('No Models found in Trash'), 
+						'not_found_in_trash' => __('No Models found in Trash'),
 						'parent_item_colon' => ''
-						),							 
+						),
 			'show_ui' => true,
 			'menu_position'=>5,
 			'query_var' => true,
@@ -404,20 +407,20 @@ register_post_type(
 						'custom-fields',
 						'thumbnail'
 						),
-			'taxonomies' => array('post_tag','category')	
-			) 
+			'taxonomies' => array('post_tag','category')
+			)
 	);
-} 
+}
 add_action('init', 'post_type_model');
 
 
 /* ========================= ACCESSORIES =========================== */
 function post_type_accessories() {
 register_post_type(
-	'accessory', 
+	'accessory',
 	array( 'public' => true,
 			'publicly_queryable' => true,
-			'has_archive' => true, 
+			'has_archive' => true,
 			'hierarchical' => true,
 			'menu_icon' => get_stylesheet_directory_uri() . '/images/icon-gundambuilder-accessories.svg',
 			'labels'=>array(
@@ -430,9 +433,9 @@ register_post_type(
 						'view_item' => __('View Accessory'),
 						'search_items' => __('Search Accessories'),
 						'not_found' =>  __('No Accessory found'),
-						'not_found_in_trash' => __('No Accessory found in Trash'), 
+						'not_found_in_trash' => __('No Accessory found in Trash'),
 						'parent_item_colon' => ''
-						),							 
+						),
 			'show_ui' => true,
 			'menu_position'=>5,
 			'query_var' => true,
@@ -446,15 +449,15 @@ register_post_type(
 						'custom-fields',
 						'thumbnail'
 						),
-			'taxonomies' => array('post_tag')	
-			) 
+			'taxonomies' => array('post_tag')
+			)
 	);
-} 
+}
 add_action('init', 'post_type_accessories');
 
 
 /*==== TAXONOMY : MODEL SCALE =======*/
-function create_model_scale_taxonomy() 
+function create_model_scale_taxonomy()
 {
 $labels = array(
 	  'name' => _x( 'Model Scales', 'taxonomy general name' ),
@@ -463,11 +466,11 @@ $labels = array(
 	  'all_items' => __( 'All Model Scales' ),
 	  'parent_item' => __( 'Parent Model Scale' ),
 	  'parent_item_colon' => __( 'Parent Model Scale:' ),
-	  'edit_item' => __( 'Edit Model Scale' ), 
+	  'edit_item' => __( 'Edit Model Scale' ),
 	  'update_item' => __( 'Update Model Scale' ),
 	  'add_new_item' => __( 'Add Model Scale' ),
 	  'new_item_name' => __( 'New Model Scale' ),
-); 	
+);
 register_taxonomy('model-scale',array('model-kit'), array(
     'hierarchical' => true,
     'labels' => $labels,
@@ -526,7 +529,7 @@ add_action( 'init', 'add_model_scale_term_48' );
 
 
 /*==== TAXONOMY : BUILD STATUS =======*/
-function create_build_status_taxonomy() 
+function create_build_status_taxonomy()
 {
 $labels = array(
 	  'name' => _x( 'Build Status', 'taxonomy general name' ),
@@ -535,11 +538,11 @@ $labels = array(
 	  'all_items' => __( 'All Build Statuses' ),
 	  'parent_item' => __( 'Parent Build Status' ),
 	  'parent_item_colon' => __( 'Parent Build Status:' ),
-	  'edit_item' => __( 'Edit Build Status' ), 
+	  'edit_item' => __( 'Edit Build Status' ),
 	  'update_item' => __( 'Update Build Status' ),
 	  'add_new_item' => __( 'Add Build Status' ),
 	  'new_item_name' => __( 'New Build Status' ),
-); 	
+);
 register_taxonomy('build-status',array('model'), array(
     'hierarchical' => true,
     'labels' => $labels,
@@ -600,7 +603,7 @@ add_action( 'init', 'add_build_status_term_panel_lined' );
 
 
 /*==== TAXONOMY : MANUFACTURERS =======*/
-function create_manufacturers_taxonomy() 
+function create_manufacturers_taxonomy()
 {
 $labels = array(
 	  'name' => _x( 'Manufacturer', 'taxonomy general name' ),
@@ -609,11 +612,11 @@ $labels = array(
 	  'all_items' => __( 'All Manufacturers' ),
 	  'parent_item' => __( 'Parent Manufacturer' ),
 	  'parent_item_colon' => __( 'Parent Manufacturer:' ),
-	  'edit_item' => __( 'Edit Manufacturer' ), 
+	  'edit_item' => __( 'Edit Manufacturer' ),
 	  'update_item' => __( 'Update Manufacturer' ),
 	  'add_new_item' => __( 'Add Manufacturer' ),
 	  'new_item_name' => __( 'New Manufacturer' ),
-); 	
+);
 register_taxonomy('manufacturer',array('model-kit'), array(
     'hierarchical' => true,
     'labels' => $labels,
@@ -666,7 +669,7 @@ add_action( 'init', 'add_series_term_mfg_gaogao' );
 
 
 /*==== TAXONOMY : MODEL TYPES =======*/
-function create_model_type_taxonomy() 
+function create_model_type_taxonomy()
 {
 $labels = array(
 	  'name' => _x( 'Model Type', 'taxonomy general name' ),
@@ -675,11 +678,11 @@ $labels = array(
 	  'all_items' => __( 'All Model Type' ),
 	  'parent_item' => __( 'Parent Model Type' ),
 	  'parent_item_colon' => __( 'Parent Model Type:' ),
-	  'edit_item' => __( 'Edit Model Type' ), 
+	  'edit_item' => __( 'Edit Model Type' ),
 	  'update_item' => __( 'Update Model Type' ),
 	  'add_new_item' => __( 'Add Model Type' ),
 	  'new_item_name' => __( 'New Model Type' ),
-); 	
+);
 register_taxonomy('model-types',array('model-kit'), array(
     'hierarchical' => true,
     'labels' => $labels,
@@ -842,7 +845,7 @@ add_action( 'init', 'add_series_term_mkt_rg' );
 
 
 /*====== TAXONOMY : BUILD STATUS =======*/
-function create_accr_type_taxonomy() 
+function create_accr_type_taxonomy()
 {
 $labels = array(
 	  'name' => _x( 'Accessory Types', 'taxonomy general name' ),
@@ -851,11 +854,11 @@ $labels = array(
 	  'all_items' => __( 'All Accessory Types' ),
 	  'parent_item' => __( 'Parent Accessory Types' ),
 	  'parent_item_colon' => __( 'Parent Accessory Types:' ),
-	  'edit_item' => __( 'Edit Accessory Types' ), 
+	  'edit_item' => __( 'Edit Accessory Types' ),
 	  'update_item' => __( 'Update Accessory Types' ),
 	  'add_new_item' => __( 'Add Accessory Types' ),
 	  'new_item_name' => __( 'New Accessory Types' ),
-); 	
+);
 register_taxonomy('accessory-type',array('accessory'), array(
     'hierarchical' => true,
     'labels' => $labels,
