@@ -18,7 +18,7 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 
-  
+
 <?php wp_head(); ?>
 </head>
 
@@ -30,7 +30,7 @@
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <meta name="author" content="">
     <link rel="shortcut icon" href="ico/favicon.ico">
     <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -61,15 +61,15 @@
 					<button><span class="glyphicon glyphicon-th-list"></span></button>
 				</div>
 			</div>
-			
+
 			<nav id="access" role="navigation">
 				<h1 class="assistive-text section-heading" style="display:none;"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
 				<div class="skip-link screen-reader-text" style="display:none;"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
 
 				<?php wp_nav_menu( array('location' => 'primary' ,'menu' => 'Menu 1','container'=> 'div','container_class' => 'menu','menu_class' => 'navi', )); ?>
-				
-					<!--- SAMPLE MENU HTML GENERATED ---
-		
+
+					<!-- SAMPLE MENU HTML GENERATED
+
 					<div class="menu">
 						<ul>
 							<li class="current_page_item">
@@ -80,7 +80,8 @@
 							</li>
 						</ul>
 					</div>
-					
+
 					!-->
+
 			</nav><!-- #access -->
 		</header><!--- /HEAD ---->

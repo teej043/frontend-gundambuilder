@@ -36,20 +36,28 @@ get_header(); ?>
 						</div><!-- /input-group -->
 					</div>
 					<div style="clear:both"></div>
-					<div class="gb-main-content col-md-12">
+					<div class="gb-main-content row">
                     	<div>
                         	<?php //the_title(); ?>
                         </div>
 
-						<?php while ( have_posts() ) : the_post(); ?>
+						<?php $ind = 0;
+									while ( have_posts() ) : the_post(); ?>
 
-							<?php get_template_part( 'content', 'page' ); ?>
+							<?php get_template_part( 'content', 'category-preview' ); ?>
 
                             <?php
+
                                 // If comments are open or we have at least one comment, load up the comment template
                                 if ( comments_open() || '0' != get_comments_number() )
                                     comments_template();
-                            ?>
+
+																$ind+=1;
+
+																if (($ind % 2) == 0){
+																	echo '<div class="clearfix"></div>';
+																}
+														?>
 
                         <?php endwhile; // end of the loop. ?>
 

@@ -194,6 +194,11 @@ body{
 
 
 .gb-main-content{
+	.post{
+		&.category-tools, &.category-supplies{
+
+		}
+	}
   h1{
     span{
       font-family: "Tahoma", arial, sans-serif;
@@ -259,10 +264,78 @@ body{
 }
 
 
+.gb-head{
+
+}
+
+.gb-main{
+	.gb-page{
+		.gb-aside-nav{
+
+		}
+		.gb-content-area{
+			.gb-main-content{
+
+			}
+		}
+	}
+	&.template-category{
+		.gb-page{
+			.gb-aside-nav{
+
+			}
+			.gb-content-area{
+				.gb-main-content{
+					margin-left: 0px;
+					margin-right: 0px;
+					.post{
+						margin-bottom: 30px;
+						header{
+							.gb-post-title{
+								font-size: 16px;
+								h1{
+									a{
+										display:block;
+										line-height:1;
+										min-height: 2em;
+									}
+								}
+							}
+							.gb-post-head-image{
+								height:300px;
+								.bgimg{
+									width:100%;
+									height:100%;
+									background-size: cover;
+									background-position: center top;
+								}
+							}
+							.lead{
+								font-size:16px;
+								margin:10px 0;
+								p{
+									min-height: 100px;
+								}
+							}
+							#gb-post-meta-b{
+								.gb-post-meta-post{
+									width:100%;
+									text-align:left;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 
 .gb-foot{
 	z-index:999;
 }
+
 
 
 
