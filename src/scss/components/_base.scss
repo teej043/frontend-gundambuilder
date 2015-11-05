@@ -130,12 +130,27 @@ body{
 
 
 .gb-post-content{
-  p{
+	.gb-post-head-box-art{
+		margin: 10px 0;
+	}
+	p{
+		/*
     img{
     	width:20%;
     	height:auto;
     	margin:0px 5px 5px 0px;
     }
+		*/
+		a{
+			img{
+				max-width: 100%;
+				height: auto;
+				&.aligncenter{
+					margin: 0 auto;
+					display: block;
+				}
+			}
+		}
   }
   .gb-model-stats{
     #gb-builder-verdict-a{
