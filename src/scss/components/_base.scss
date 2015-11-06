@@ -225,7 +225,7 @@ body{
   }
   .gb-post-list{
   	float:left;
-  	width:100%;
+  	//width:100%;
     article{
 			padding-left: 0px;
 			padding-right: 0px;
@@ -290,7 +290,110 @@ body{
 		}
 		.gb-content-area{
 			.gb-main-content{
+				.gb-post-list{
+					article{
+						//figure: mobile suit art
+						&.mobile-suit{
+							.gb-post-container{
+								.gb-mobile-suit-art{
+									position:relative;
+									img{
+										width:100%;
+										height:auto;
+									}
+									.kits-bar{
+										&--horizontal{
+											list-style:none;
+											padding:5px;
+											margin:0px;
+											position: absolute;
+											bottom: 0px;
+											height:35%;
+											min-width: 100%;
+											background:rgba(0,0,0,0.5);
+											overflow-x: scroll;
+											overflow-y: hidden;
+											.kits{
+												width: auto;
+												height:100%;
+												list-style:none;
+												padding-left:0;
+												.kit{
+													height:100%;
+													display:block;
+													float:left;
+													a{
+														height:100%;
+														display:inline-block;
+														img{
+															width:auto;
+															height:100%;
 
+														}
+													}
+												}
+											}
+										}
+										&--vertical{
+											padding:5px;
+											margin:0px;
+											position: absolute;
+											bottom: 0px;
+											right:0px;
+											width:25%;
+											height:100%;
+											background:rgba(0,0,0,0.6);
+											overflow-x: hidden;
+											overflow-y: scroll;
+											.kits{
+												width:100%;
+												list-style:none;
+												padding-left:0;
+												display: block;
+												float: left;
+												.kit{
+													height:100%;
+													display:block;
+													float:left;
+													margin-bottom:5px;
+													&:last-child{
+														margin-bottom:0px;
+													}
+													a{
+														width:100%;
+														display:inline-block;
+														img{
+															width:100%;
+															height:auto;
+
+														}
+													}
+												}
+											}
+										}
+									}
+									.indicator-down{
+										position:absolute;
+										bottom: 0px;
+										color:white!important;
+										z-index:1;
+										font-size:30px;
+										right:10%;
+										display:none;
+									}
+								}
+							}
+						}
+						//figure: model kit box art
+						&.gb-model-kit-boxart{
+							width:100%;
+							height:150px;
+							background-size: 120%;
+							background-position: center 20%;
+							background-repeat: no-repeat;
+						}
+					}
+				}
 			}
 		}
 	}

@@ -24,11 +24,11 @@
 	?>
 
 	<?php if ($type == "mobile-suit"){ ?>
-    			<figure style="position:relative;">
-					<img style="width:100%;height:auto;" src="<?php echo($img_url[0]); ?>" />
+    			<figure class="gb-mobile-suit-art">
+					<img src="<?php echo($img_url[0]); ?>" />
 		<?php }else{ ?>
 
-				<figure style="background-image:url(<?php echo($img_url[0]); ?>);width:100%;height:150px;background-size: 120%;background-position: center 20%;background-repeat: no-repeat;">
+				<figure class="gb-model-kit-boxart" style="background-image:url(<?php echo($img_url[0]); ?>);">
 		<?php } ?>
 
 
@@ -76,20 +76,24 @@
 				//print_r($wp_query);
 
 				if (have_posts()):?>
-				<ul style="list-style:none;padding:5px;margin:0px;position: absolute;bottom: 0px;height:35%;width:100%;background:rgba(0,0,0,0.5);">
-					<?php while ($wp_query->have_posts()) : $wp_query->the_post();
-						//$featimg = wp_get_attachment_image_src( get_post_meta($post->ID,'GB_model-kit-imagick-id',true),'medium');
+        <div class="kits-bar kits-bar--vertical">
+  				<ul class="kits">
+  					<?php while ($wp_query->have_posts()) : $wp_query->the_post();
+  						//$featimg = wp_get_attachment_image_src( get_post_meta($post->ID,'GB_model-kit-imagick-id',true),'medium');
 
-						$thumb = get_post_thumbnail_id();
-						$img_url = wp_get_attachment_image_src( $thumb,'medium' );
+  						$thumb = get_post_thumbnail_id();
+  						$img_url = wp_get_attachment_image_src( $thumb,'medium' );
 
-						if($img_url == false){
-							$img_url[0]=get_stylesheet_directory_uri().'/images/logo-ms-unknown.png';
-						}
-					?>
-					<li style="height:100%;display:inline-block;" id="rel-mkit-<?php echo($post->ID); ?>"><a style="height:100%;" href="<?php echo get_permalink($post->ID); ?>"><img style="width:auto;height:100%;" src="<?php echo($img_url[0]); ?>" title="<?php echo($post->post_title); ?>" /></a></li>
-					<?php endwhile; ?>
-				</ul>
+  						if($img_url == false){
+  							$img_url[0]=get_stylesheet_directory_uri().'/images/logo-ms-unknown.png';
+  						}
+  					?>
+  					<li class="kit" id="rel-mkit-<?php echo($post->ID); ?>"><a href="<?php echo get_permalink($post->ID); ?>"><img src="<?php echo($img_url[0]); ?>" title="<?php echo($post->post_title); ?>" /></a></li>
+  					<?php endwhile; ?>
+  				</ul>
+
+        </div>
+        <div class="indicator-down">&#128315;</div>
 				<?php endif; ?>
 				<?php $wp_query = null; $wp_query = $temp;
 

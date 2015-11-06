@@ -3,21 +3,21 @@
 
 /* Back to top */
 
-	
+
 
 	$(document).ready(function () {
-			
+
 			if (($('#ms-select').length) > 0){
 				$('#ms-select').select2({ placeholder : '' }).on("change", function(e) {
 					// mostly used event, fired to the original element when the value changes
-				  
-					  
+
+
 					  if (e.val == ''){
 						  $('input#model-name').val('').prop('disabled', false);
 						  $('input#model-code').val('').prop('disabled', false);
 						  $('input#model-alias').val('').prop('disabled', false);
 						  $('input#model-wikilink').val('').prop('disabled', false);
-					  }else{  
+					  }else{
 							oBj = $('#ms-select option[value="'+e.val+'"]');
 						  valCodeName = oBj.attr('data-codename');
 						  valAlias = oBj.attr('data-alias');
@@ -29,17 +29,17 @@
 						  alert("change val=" + e.val);
 					  }
 				});
-				
+
 				$('#ms-series-select').select2({ placeholder : '', maximumSelectionSize: 3 }).on("change", function(e) {
 					// mostly used event, fired to the original element when the value changes
-				  
+
 					  /*
 					  if (e.val == ''){
 						  $('input#model-name').val('').prop('disabled', false);
 						  $('input#model-code').val('').prop('disabled', false);
 						  $('input#model-alias').val('').prop('disabled', false);
 						  $('input#model-wikilink').val('').prop('disabled', false);
-					  }else{  
+					  }else{
 							oBj = $('#single option[value="'+e.val+'"]');
 						  valCodeName = oBj.attr('data-codename');
 						  valAlias = oBj.attr('data-alias');
@@ -51,17 +51,17 @@
 						  alert("change val=" + e.val);
 					  }*/
 				});
-				
+
 				$('#gb-kit-type-select').select2({ placeholder : '' }).on("change", function(e) {
 					// mostly used event, fired to the original element when the value changes
-				  
+
 					  /*
 					  if (e.val == ''){
 						  $('input#model-name').val('').prop('disabled', false);
 						  $('input#model-code').val('').prop('disabled', false);
 						  $('input#model-alias').val('').prop('disabled', false);
 						  $('input#model-wikilink').val('').prop('disabled', false);
-					  }else{  
+					  }else{
 							oBj = $('#single option[value="'+e.val+'"]');
 						  valCodeName = oBj.attr('data-codename');
 						  valAlias = oBj.attr('data-alias');
@@ -74,44 +74,44 @@
 					  }*/
 				});
 			}
-			
+
 			$("#respond textarea,#respond input").addClass("form-control");
-	
+
 			$("[data-toggle='tooltip']").tooltip();
 			$("[data-toggle='popover']").popover({
 					trigger:'hover'
 				}
 			);
-			
+
 			$('.gb-buttons-mobile button').click(function(){
 				$('.gb-head .menu ul').slideToggle('fast');
 			});
-			
+
 			var ww;
 			ww = $(window).width();
-			
+
 			if (ww > 768){
 				$('.gb-head .menu ul').show();
 			}
-			
+
 			$(window).resize(function(){
 				ww = $(document).width();
-				
+
 				if (ww < 768-15){
 					$('.gb-head .menu ul').hide();
 				}
 				else if (ww >= 768-15){
 					$('.gb-head .menu ul').show();
 				}
-	
-			});
-			
-			
 
-			
-			
-			//adjust font size to fit all text inside the heading 
-			
+			});
+
+
+
+
+
+			//adjust font size to fit all text inside the heading
+
 			/*
 			$('.gb-post-heading .gb-post-title h2').each(function(){
 				var myTxt=$(this).find('a').text().length;
@@ -120,9 +120,9 @@
 				}
 			});
 			*/
-			
+
 			//togglers
-			
+
 			$('#toggle-show-series').click(function(){
 				$('.gb-nav-cat').toggleClass('show-half');
 			});
@@ -130,11 +130,11 @@
 
 			$('.go-top').click(function(event) {
 				event.preventDefault();
-				
+
 				$('html, body').animate({scrollTop: 0}, 300);
 			})
-			
-			
+
+
 			function loading(img)
 			{
 			  img.fadeOut(0, function() {
@@ -144,16 +144,40 @@
 			$('.lazyload').lazyload({load: loading});
 
 
+			//for the scroll list on mobile suit lists of gunpla kits
+
+			$('.gb-mobile-suit-art .kits-bar--vertical').each(function(){
+					var h = $(this).height(), hh = $(this).find('.kits').height();
+
+					if (!(hh < h)){
+						$(this).parent().find('.indicator-down').show();
+
+						$(this).on('scroll',function(){
+							var topY = $(this).offset().top, scrollY = $(this).scrollTop();
+							if (scrollY <= ((hh - h) - 10)){
+								$(this).parent().find('.indicator-down').show(300);
+							}else{
+								$(this).parent().find('.indicator-down').hide(300);
+							}
+						});
+					}else{
+							$(this).parent().find('.indicator-down').hide();
+					}
+
+			})
+
+
+
 		});
-	
+
 /* Mobile menu */
 	/*
     jQuery('#topmenu').mobileMenu({
 			prependTo:'.mobilenavi'
-			});	
-	*/	
+			});
+	*/
 
-	
+
 /* grid */
 /* 	jQuery('.latest-posts .col-md-6:nth-child(2n)').after('<div class="clear"></div>'); */
 
@@ -167,10 +191,7 @@
        + '<span> <h3>%H</h3> Hours </span>'   ));
    });
    */
-   
+
 /* Prettyphoto    */
-   
+
    //jQuery("a[rel^='prettyPhoto']").prettyPhoto();
-   
- 
-	
