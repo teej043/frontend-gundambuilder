@@ -5,8 +5,8 @@
  * @package web2feel
  */
 
- 
- 
+
+
 get_header(); ?>
 
 
@@ -27,7 +27,7 @@ echo($opt)
 					</nav>
 				</div>
 			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-12 col-lg-10" style="background:#fff;">
+			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
 						<div class="gb-search input-group input-group-lg input-group-sm">
@@ -38,48 +38,48 @@ echo($opt)
 						</div><!-- /input-group -->
 					</div>
 					<div style="clear:both"></div>
-                    
+
 					<?php
 					echo($opt);
 					/*
 					$temp = $wp_query;
 					$wp_query= null;
-					
+
 					if ($opt == 'model'){
 						$args = array('post_type' => 'model');
 					}
 					else{
 						$args = array('post_type' => array('post','model','page','turntable'));
 					}
-					
+
 					$wp_query = new WP_Query( $args );
 					*/
 					?>
-					
-					
+
+
                     <?php if ( have_posts() ) : ?>
-                    
+
 					<div class="gb-main-content col-md-12">
-						
-                    
+
+
                     	<div>
 							<h1><?php printf( __( 'Search Results for: %s', 'web2feel' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
         				</div>
 						<div class="gb-post-list">
-						
-						
-						
-						
+
+
+
+
                     	<?php /* Start the Loop */ ?>
 						<?php while ( have_posts() ) : the_post(); ?>
-            
+
                             <?php get_template_part( 'content', 'archive' ); ?>
-            
+
                         <?php endwhile; ?>
-            
+
                         <?php bootstrap_pagination();?>
-						
-						
+
+
                         </div>
 					</div><!--- main content --->
                     <?php else : ?>
@@ -87,12 +87,16 @@ echo($opt)
                         <?php get_template_part( 'no-results', 'search' ); ?>
             		</div><!--- main content --->
                     <?php endif; ?>
-					
+
 				</div><!-- row --->
-			</div><!--- gb-content-area --->
+      </div><!-- gb-content-area end -->
+
+			<!-- gb-sidebar begin -->
+			<?php get_sidebar(); ?>
+			<!-- gb-sidebar end -->
+
 		</div><!--- gb-page --->
-		
+
 
 <?php
-get_sidebar();
 get_footer();

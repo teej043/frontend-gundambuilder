@@ -18,7 +18,7 @@ get_header(); ?>
 					</nav>
 				</div>
 			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-12 col-lg-10" style="background:#fff;">
+			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
 						<div class="gb-search input-group input-group-lg input-group-sm">
@@ -33,13 +33,13 @@ get_header(); ?>
                     	<div>
                         	<?php the_title(); ?>
                         </div>
-                        
-						
-						
+
+
+
 						<form>
 							<select id="ms-models" name="q" onchange="showModel(this.value)">
 								<option></option>
-								<?php 
+								<?php
 								$temp = $wp_query;
 								$wp_query= null;
 								$args = array(
@@ -63,25 +63,25 @@ get_header(); ?>
 								if (have_posts()):
 								while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 								<option value="<?php echo($post->ID) ?>" data-wikilink="<?php echo get_post_meta($post->ID,'GB_model-kit-detail-wiki-link',true); ?>" data-alias="<?php echo get_post_meta($post->ID,'GB_model-kit-detail-alias',true); ?>" data-codename="<?php echo get_post_meta($post->ID,'GB_model-kit-detail-code-name',true); ?>"><?php echo($post->post_title) ?></option>
-								<?php 
-								endwhile; 
+								<?php
+								endwhile;
 								endif;
-								$wp_query = null; 
+								$wp_query = null;
 								$wp_query = $temp;?>
 							</select>
 						</form>
 						<br>
 						<div id="txtHint"><b>Person info will be listed here.</b></div>
-						
+
 						<script>
-						
+
 						function showModel(str) {
 							var path;
 							path = "<?php echo (get_stylesheet_directory_uri()); ?>";
 							if (str=="") {
 							document.getElementById("txtHint").innerHTML="";
 							return;
-							} 
+							}
 							if (window.XMLHttpRequest) {
 							// code for IE7+, Firefox, Chrome, Opera, Safari
 							xmlhttp=new XMLHttpRequest();
@@ -97,32 +97,35 @@ get_header(); ?>
 							xmlhttp.send();
 						}
 						</script>
-						
-						
+
+
 						<?php while ( have_posts() ) : the_post(); ?>
 
 							<?php get_template_part( 'content', 'page' ); ?>
-            
+
                             <?php
                                 // If comments are open or we have at least one comment, load up the comment template
                                 if ( comments_open() || '0' != get_comments_number() )
                                     comments_template();
                             ?>
-            
+
                         <?php endwhile; // end of the loop. ?>
-                        
-						
-						
+
+
+
 					</div><!--- main content --->
-					
-					
-					
+
+
+
 				</div><!-- row --->
-			</div><!--- gb-content-area --->
+			</div><!-- gb-content-area end -->
+
+			<!-- gb-sidebar begin -->
+			<?php get_sidebar(); ?>
+			<!-- gb-sidebar end -->
+
 		</div><!--- gb-page --->
-		
+
 
 <?php
-get_sidebar();
 get_footer();
-

@@ -8,7 +8,7 @@
  * different template.
  *
   Template name:Fullpage
-  
+
  * @package gndmbldr
  */
 
@@ -26,7 +26,7 @@ get_header(); ?>
 					</nav>
 				</div>
 			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-12 col-lg-10" style="background:#fff;">
+			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
 						<div class="gb-search input-group input-group-lg input-group-sm">
@@ -41,27 +41,31 @@ get_header(); ?>
                     	<div>
                         	<?php the_title(); ?>
                         </div>
-                        
+
 						<?php while ( have_posts() ) : the_post(); ?>
 
 							<?php get_template_part( 'content', 'page' ); ?>
-            
+
                             <?php
                                 // If comments are open or we have at least one comment, load up the comment template
                                 if ( comments_open() || '0' != get_comments_number() )
                                     comments_template();
                             ?>
-            
+
                         <?php endwhile; // end of the loop. ?>
-                            
-						
+
+
 					</div><!--- main content --->
-					
+
 				</div><!-- row --->
-			</div><!--- gb-content-area --->
+      </div><!-- gb-content-area end -->
+
+			<!-- gb-sidebar begin -->
+			<?php get_sidebar(); ?>
+			<!-- gb-sidebar end -->
+
 		</div><!--- gb-page --->
-		
+
 
 <?php
-get_sidebar();
 get_footer();

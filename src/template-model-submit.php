@@ -3,7 +3,7 @@
 Template Name: Model Submit
 */
 
-get_header(); 
+get_header();
 
 
 /* Create temporary post 'draft'*/
@@ -14,7 +14,7 @@ $pargs = array(
 	'post_title' => 'temporary title',
 	'post_status' => 'draft',
 	'post_type' => 'model'
-		
+
 );
 
 $pid = wp_insert_post($pargs);
@@ -22,19 +22,19 @@ $pid = wp_insert_post($pargs);
 ?>
 
 	<main class="gb-main container-fluid template-model-submit">
-		<div class="gb-page row" style="background:#eee;">
+		<div class="gb-page row">
 			<aside class="gb-aside-nav col-xs-12 col-sm-2 col-md-12 col-lg-2 visible-sm visible-md visible-lg" style="background:#fff;">
 				<div class="row">
 					<nav class="col-md-12 col-lg-12" style="background:#fff;">
 						<div id="toggle-show-series">Show Mobile Suit Series <span class="caret"></span></div>
 						<ul class="gb-nav-cat">
-							<?php 
+							<?php
 							$mslist = gb_ms_series_list(); ?>
 						</ul>
 					</nav>
 				</div>
 			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-12 col-lg-10" style="background:#fff;">
+			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
 						<div class="gb-search input-group input-group-lg input-group-sm">
@@ -49,17 +49,17 @@ $pid = wp_insert_post($pargs);
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 							<header class="row template-content-single-model">
 								<section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
-									<h1 style="display:inline;font-size:42px;"><?php the_title(); ?></h1>		
+									<h1 style="display:inline;font-size:42px;"><?php the_title(); ?></h1>
 								</section>
 							</header>
 
-							<section class="gb-post-content">  
-								<?php 
-								$thecontent = apply_filters( 'the_content', $post->post_content ); 
+							<section class="gb-post-content">
+								<?php
+								$thecontent = apply_filters( 'the_content', $post->post_content );
 								$thecontent = str_replace( ']]>', ']]&gt;', $thecontent );
 								echo($thecontent);
 								?>
-								
+
 								<form>
 									<div class="panel-group">
 										<div class="panel panel-default">
@@ -77,7 +77,7 @@ $pid = wp_insert_post($pargs);
 														<div class="col-sm-8 col-lg-10">
 														  <select id="ms-select" name="gb-ms" class="select2 input-full">
 															<option></option>
-															<?php 
+															<?php
 															$temp = $wp_query;
 															$wp_query= null;
 															$args = array(
@@ -101,19 +101,19 @@ $pid = wp_insert_post($pargs);
 															if (have_posts()):
 															while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 																<option value="<?php echo($post->post_title) ?>" data-wikilink="<?php echo get_post_meta($post->ID,'GB_model-kit-detail-wiki-link',true); ?>" data-alias="<?php echo get_post_meta($post->ID,'GB_model-kit-detail-alias',true); ?>" data-codename="<?php echo get_post_meta($post->ID,'GB_model-kit-detail-code-name',true); ?>"><?php echo($post->post_title) ?></option>
-															<?php 
-															endwhile; 
+															<?php
+															endwhile;
 															endif;
-															$wp_query = null; 
+															$wp_query = null;
 															$wp_query = $temp;?>
 														  </select>
 														</div>
 														<p class="col-sm-offset-4 col-sm-8 col-lg-offset-2 col-lg-10" style="padding-top:15px;">Note: You should select the gundam model first if it already exists on this site so relevant fields below will be automatically filled, if there's no existing model please leave this field blank (by clicking the 'x' icon on the far right) and continue filling the form the usual.</p>
 													</div>
-													
-                                                    
-                                                    
-													
+
+
+
+
 													<div class="form-group">
 														<label for="model-code" class="col-sm-4 col-lg-2 control-label"><span class="glyphicon glyphicon-info-sign" data-container="body" data-toggle="popover" data-content="Specify the code name of the Mobile Suit e.g. ZGMF-2000, you can easily find this information on the web searches.">&nbsp;</span>Model Code</label>
 														<div class="col-sm-8 col-lg-10">
@@ -152,7 +152,7 @@ $pid = wp_insert_post($pargs);
 														  </select>
 														</div>
 													</div>
-                                                    
+
 													<div class="form-group">
 														<div class="col-sm-offset-4 col-sm-8 col-lg-offset-2 col-lg-10">
 															<div class="checkbox">
@@ -181,7 +181,7 @@ $pid = wp_insert_post($pargs);
 														<div class="col-sm-8 col-lg-10">
 															<input type="text" class="form-control" id="model-name" name="model-name" placeholder="e.g. Strike Noir" autofocus>
 														</div>
-														
+
 													</div>
                                                     -->
                                                 	<div class="form-group">
@@ -198,8 +198,8 @@ $pid = wp_insert_post($pargs);
                                                           </label>
                                                         </div>
                                                     </div>
-                                                    
-                                                   
+
+
                                                     <!--- ms list --->
                                                      <?php $kittypes = gb_kit_type_list(); ?>
                                                 	<div class="form-group">
@@ -221,14 +221,14 @@ $pid = wp_insert_post($pargs);
 														  </select>
 														</div>
 													</div>
-                                                    
+
                                                     <div class="form-group">
                                                     	<label for="desc" class="col-sm-2 control-label">Description</label>
                                                         <div class="col-sm-10">
 	                                                    	<textarea id="desc" name="gb-desc" class="form-control" rows="5"></textarea>
                                                         </div>
                                                     </div>
-                                                    
+
 													<div class="form-group">
 														<label for="email" class="col-sm-2 control-label">Email</label>
 														<div class="col-sm-10">
@@ -258,7 +258,7 @@ $pid = wp_insert_post($pargs);
                                                     </div>
                                                     <div class="form-group">
                                                     	<div class="col-sm-12">
-                                                        	
+
                                                         	<div action="<?php echo(get_template_directory_uri() . '/inc/dropzone/upload.php'); ?>" class="dropzone">
                                                             	<input type="hidden" name="myparam1" value="test" />
                                                             </div>
@@ -266,8 +266,8 @@ $pid = wp_insert_post($pargs);
                                                             </iframe>-->
                                                         </div>
                                                     </div>
-                                                  
-                                                    
+
+
 													<div class="form-group">
 														<div class="col-sm-offset-2 col-sm-10">
 															<button type="submit" class="btn btn-default">Sign in</button>
@@ -279,7 +279,7 @@ $pid = wp_insert_post($pargs);
 									</div>
                                     <input type="hidden" name="gb-pid" id="gb-pid" value="<?php echo($pid);?>"  />
 								</form>
-								
+
 							</section>
 							<footer class="entry-meta">
 								<?php
@@ -320,14 +320,16 @@ $pid = wp_insert_post($pargs);
 							</footer><!-- .entry-meta -->
 						</article>
 					</div><!--- main content --->
-					
+
 				</div><!-- row --->
-			</div><!--- gb-content-area --->
+			</div><!-- gb-content-area end -->
+
+			<!-- gb-sidebar begin -->
+			<?php get_sidebar(); ?>
+			<!-- gb-sidebar end -->
+
 		</div><!--- gb-page --->
 
 
 <?php
-get_sidebar();
 get_footer();
-
-

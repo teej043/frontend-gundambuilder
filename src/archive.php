@@ -11,7 +11,8 @@ get_header(); ?>
 
 
 	<main class="gb-main container-fluid">
-		<div class="gb-page row" style="background:#eee;">
+		<div class="gb-page row">
+			<!-- gb-aside-nav begin -->
 			<aside class="gb-aside-nav col-xs-12 col-sm-2 col-md-12 col-lg-2 visible-sm visible-md visible-lg" style="background:#fff;">
 				<div class="row">
 					<nav class="col-md-12 col-lg-12" style="background:#fff;">
@@ -21,8 +22,11 @@ get_header(); ?>
 						</ul>
 					</nav>
 				</div>
-			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-12 col-lg-10" style="background:#fff;">
+			</aside>
+			<!--- gb-aside-nav end--->
+
+			<!-- gb-content-area begin -->
+			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
 						<div class="gb-search input-group input-group-lg input-group-sm">
@@ -131,10 +135,15 @@ get_header(); ?>
                     <?php endif; ?>
 
 				</div><!-- row --->
-			</div><!--- gb-content-area --->
+
+			</div><!-- gb-content-area end -->
+
+			<!-- gb-sidebar begin -->
+			<?php get_sidebar(); ?>
+			<!-- gb-sidebar end -->
+
 		</div><!--- gb-page --->
 
 
 <?php
-get_sidebar();
 get_footer();

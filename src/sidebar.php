@@ -5,7 +5,7 @@
  * @package gndmbldr
  */
 ?>
-		<section class="gb-sidebar">
+		<section class="gb-sidebar col-xs-12 col-sm-3 col-lg-3">
 			<div id="secondary" class="widget-area container-fluid" role="complementary">
 				<div style="float:left;width:100%;padding-bottom:20px;">
 					<div class="gb-search-sidebar input-group" style="display:none;">
@@ -14,8 +14,8 @@
 						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
 					  </span>
 					</div><!-- /input-group -->
-		
-					
+
+
 					<form role="search" method="get" class="search-form" action="<?php bloginfo('home'); ?>">
 						<div class="gb-sidebar-search input-group">
 						  <input class="search-field form-control" placeholder="Search …" value="<?php the_search_query(); ?>" name="s" title="Search for:" type="search">
@@ -41,12 +41,12 @@
 						  </div>
 						</div>
 					</form>
-					
+
 
 					<!---
 					<form role="search" method="get" id="searchformx" action="<?php bloginfo('home'); ?>">
 					  <div>
-						<input type="text" value="" name="s" id="s" /> 
+						<input type="text" value="" name="s" id="s" />
 
 					<?php
 					function get_terms_dropdown($taxonomies, $args){
@@ -75,31 +75,31 @@
 					<input type="submit" id="searchsubmit" value="Search" />
 					</div>
 					</form>
-					
+
 					--->
-					
+
 				</div>
-				
+
 					<script type="text/javascript">
 							/*
 							jQuery('input#search-submit').click(function(){
 								alert('test');
 							});*/
-							
+
 							jQuery('.gb-sidebar-search .dropdown-menu li a').click(function(){
 								//alert('waa');
 								var optName = jQuery(this).text();
 								jQuery('.gb-sidebar-search #search-submit').val(optName);
 								jQuery('.gb-sidebar-search #hidden').val(optName);
 							});
-							
+
 							jQuery('#search-button').on('click',function(){
 								jQuery('#search-submit').trigger('click');
 							});
-							
+
 					</script>
-				
-				
+
+
 				<aside class="widget gb-sidebar-model-types-links">
 					<h2 class="widget-title">Model Types</h2>
 					<ul>
@@ -108,7 +108,7 @@
 						//print_r($mtypes);
 						foreach($mtypes as $term){
 							//$term_taxonomy=$term->gundam-series; //CHANGE ME
-							
+
 							$term = sanitize_term( $term, 'model-types' );
 							$term_link = get_term_link( $term, 'model-types' );
 							$term_slug=$term->slug;
@@ -119,16 +119,16 @@
 					?>
 					</ul>
 				</aside>
-				
-				
-				
+
+
+
                 <div class="gb-sidebar-featured-kits">
                 	<h2>Featured Models</h2>
                     <ul style="list-style:none;padding:0px;margin:0px;">
-                    	<?php 
+                    	<?php
 							$temp = $wp_query;
 							$wp_query= null;
-		
+
 							$args = array(
 								'post_type' => 'model',
 								'tax_query' => array(
@@ -142,12 +142,12 @@
 								'showposts'=>4
 							);
 							$wp_query = new WP_Query( $args );
-							
-							
+
+
 						?>
                         <?php if (have_posts()):?>
-                        	<?php while ($wp_query->have_posts()) : $wp_query->the_post(); 
-								$featimg = wp_get_attachment_image_src( get_post_meta($post->ID,'GB_model-kit-imagick-id',true),'sidebar-half-thumb');								
+                        	<?php while ($wp_query->have_posts()) : $wp_query->the_post();
+								$featimg = wp_get_attachment_image_src( get_post_meta($post->ID,'GB_model-kit-imagick-id',true),'sidebar-half-thumb');
 							?>
                             <li id="feat-kit-<?php echo($post->ID); ?>" style="float:left;padding:5px;">
                                 <a href="<?php echo(get_permalink($post->ID)); ?>" target="_blank">
@@ -155,7 +155,7 @@
                                 	<img src="<?php echo($featimg[0]); ?>" width="150" height="84" />
                                 </figure>
                                 </a>
-                            </li> 
+                            </li>
                         	<?php endwhile; ?>
                         <?php endif; ?>
                         <?php $wp_query = null; $wp_query = $temp;?>
@@ -167,34 +167,38 @@
                 	<ul>
 						<li style="padding:10px;background:#fff;">
 							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- gundambuilder-sidebar-300x250 -->
+							<!-- gundambuilder-sidebar-2 -->
 							<ins class="adsbygoogle"
-								 style="display:inline-block;width:300px;height:250px"
-								 data-ad-client="ca-pub-0525167998828307"
-								 data-ad-slot="4405839419"></ins>
+							     style="display:block"
+							     data-ad-client="ca-pub-0525167998828307"
+							     data-ad-slot="7297133815"
+							     data-ad-format="auto"></ins>
 							<script>
 							(adsbygoogle = window.adsbygoogle || []).push({});
 							</script>
 						</li>
-						<li>
+						<li style="padding:10px;background:#fff;">
 							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- gundambuilder-sidebar-320x50 -->
+							<!-- gundambuilder-sidebar -->
 							<ins class="adsbygoogle"
-								 style="display:inline-block;width:320px;height:50px"
-								 data-ad-client="ca-pub-0525167998828307"
-								 data-ad-slot="2104201016"></ins>
+									 style="display:block"
+									 data-ad-client="ca-pub-0525167998828307"
+									 data-ad-slot="6496555018"
+									 data-ad-format="auto"></ins>
 							<script>
 							(adsbygoogle = window.adsbygoogle || []).push({});
 							</script>
 						</li>
                     </ul>
                 </div>
-				
-				
-				
+
+
+
+
+
 				<!--
 				<aside id="archives-2" class="widget widget_archive">
-					<h2 class="widget-title">Archives</h2>	
+					<h2 class="widget-title">Archives</h2>
 					<ul>
 						<li><a href="#">December 2013</a></li>
 						<li><a href="#">November 2013</a></li>
@@ -206,7 +210,7 @@
                 -->
                 <?php do_action( 'before_sidebar' ); ?>
 				<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
-        
+
                 <?php endif; // end sidebar widget area ?>
                 <?php //get_template_part( 'sponsors' ); ?>
 			</div>

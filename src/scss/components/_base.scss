@@ -11,7 +11,7 @@ a:hover{
 
 body{
 	padding-top: 50px;
-	padding-bottom:50px;
+	padding-bottom:0px;
 }
 
 
@@ -285,6 +285,11 @@ body{
 
 .gb-main{
 	.gb-page{
+		&.row{
+			background:white;
+			margin-left:0px;
+			margin-right:0px;
+		}
 		.gb-aside-nav{
 
 		}
@@ -467,7 +472,7 @@ body{
 
 
 .gb-foot{
-	z-index:999;
+	//z-index:999;
 }
 
 
@@ -794,13 +799,6 @@ background: #fff;
 		float:left;
 	}
 
-	.gb-foot{
-		width:100%;
-		position:fixed;
-		bottom:0px;
-		min-height:50px;
-		background:#999;
-	}
 
 	.gb-post-head-image{
 		min-height:300px;
@@ -867,7 +865,11 @@ background: #fff;
 	}
 
 	.gb-sidebar{
-		display:block;position:absolute;top:65px;right:0px;height:100%;background:#ccc;width:350px;
+		display:block;
+		//position:absolute;
+		//top:65px;right:0px;height:100%;
+		background:#ccc;
+		//width:350px;
 	}
 
 	.gb-main{
@@ -879,19 +881,9 @@ background: #fff;
 
 
 	.gb-main .gb-page{
-		margin-right:350px;
-		margin-left:0px;
+		//margin-right:350px;
+		//margin-left:0px;
 
-	}
-
-	.gb-foot{
-		width:100%;
-		position:fixed;
-		bottom:0px;
-		left:0px;
-		float:left;
-		min-height:50px;
-		background:#999;
 	}
 
 	.gb-head{

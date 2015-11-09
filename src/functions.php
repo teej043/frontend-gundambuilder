@@ -73,7 +73,7 @@ function gndmbldr_setup() {
 
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'homepage-preview-thumb', 420, 280, true ); //(cropped)
-		add_image_size( 'sidebar-half-thumb', 150 ); 
+		add_image_size( 'sidebar-half-thumb', 150 );
 	}
 
 	/**
@@ -742,7 +742,8 @@ add_action( 'wp_insert_post', 'imagick_create' );
 add_action('admin_bar_menu', 'show_template');
 function show_template() {
 global $template;
-print_r($template);
+echo '<span class="hidden">'.$template.'</span>';
+//print_r($template);
 }
 
 

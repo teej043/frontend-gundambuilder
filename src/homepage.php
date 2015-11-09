@@ -8,7 +8,7 @@
  * different template.
  *
  * @package gndmbldr
- 
+
  Template name:Homepage
  */
 
@@ -29,7 +29,7 @@ get_header(); ?>
 					</nav>
 				</div>
 			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-12 col-lg-10" style="background:#fff;">
+			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
 						<div class="gb-search input-group input-group-lg input-group-sm">
@@ -41,12 +41,12 @@ get_header(); ?>
 					</div>
 					<div style="clear:both"></div>
 					<div class="gb-main-content col-md-12">
-                    
+
 						<?php if ( have_posts() ) : ?>
 
                             <?php /* Start the Loop */ ?>
                             <?php while ( have_posts() ) : the_post(); ?>
-                
+
                                 <?php
                                     /* Include the Post-Format-specific template for the content.
                                      * If you want to overload this in a child theme then include a file
@@ -54,26 +54,29 @@ get_header(); ?>
                                      */
                                     get_template_part( 'content', get_post_format() );
                                 ?>
-                
+
                             <?php endwhile; ?>
-                
+
                             <?php //bootstrap_pagination();?>
-                
+
                         <?php else : ?>
-                
+
                             <?php get_template_part( 'no-results', 'index' ); ?>
-                
+
                         <?php endif; ?>
-                            
-						
+
+
 					</div><!--- main content --->
-					
+
 				</div><!-- row --->
-			</div><!--- gb-content-area --->
+      </div><!-- gb-content-area end -->
+
+			<!-- gb-sidebar begin -->
+			<?php get_sidebar(); ?>
+			<!-- gb-sidebar end -->
+
 		</div><!--- gb-page --->
-		
+
 
 <?php
-get_sidebar();
-get_footer();?>
-
+get_footer();
