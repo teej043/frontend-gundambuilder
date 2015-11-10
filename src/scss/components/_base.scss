@@ -12,6 +12,7 @@ a:hover{
 body{
 	padding-top: 50px;
 	padding-bottom:0px;
+	font-family: 'Fira Sans', sans-serif;
 }
 
 
@@ -19,7 +20,7 @@ body{
 
 .gb-head{
 	display:none;
-	background:#aaa;
+	background:#999;
   .gb-logo-mobile{
     img{
     	height:100%;
@@ -34,6 +35,12 @@ body{
       	padding:0px;
       	text-transform:uppercase;
       	font-family: "Norwester",Helvetica,Arial,sans-serif;
+				li{
+					a{
+						color:white;
+						font-size:18px;
+					}
+				}
       }
     }
   }
@@ -42,6 +49,49 @@ body{
 .gb-sidebar{
 	display:none;
 	padding-top:15px;
+	.widget-area{
+		.widget{
+			width:100%;
+		}
+		.gb-sidebar-model-types-links{
+			text-align:center;
+			margin-bottom: 30px;
+			ul{
+				list-style:none;
+				padding:0px;
+				margin:0px;
+				display:inline-block;
+				text-align:center;
+				li{
+					display: inline-block;
+					padding:5px;
+				}
+			}
+		}
+		.gb-sidebar-featured-kits{
+			text-align:center;
+			margin-bottom: 30px;
+			ul{
+				list-style:none;
+				padding:0px;
+				margin:0px;
+				display:inline-block;
+				text-align:center;
+				li{
+					a{
+						figure{
+							padding:5px;
+							img{
+								width:100%;
+								height:auto;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 }
 
 
@@ -358,7 +408,26 @@ body{
 											height:100%;
 											background:rgba(0,0,0,0.6);
 											overflow-x: hidden;
-											overflow-y: scroll;
+											overflow-y: auto;
+
+											&::-webkit-scrollbar-track
+											{
+												-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+												background-color: #cccccc;
+											}
+
+											&::-webkit-scrollbar
+											{
+												width: 10px;
+												background-color: #cccccc;
+											}
+
+											&::-webkit-scrollbar-thumb
+											{
+												background-color: #444444;
+												border: 0px solid #555555;
+											}
+
 											.kits{
 												width:100%;
 												list-style:none;

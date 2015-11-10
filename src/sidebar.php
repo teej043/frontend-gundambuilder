@@ -114,7 +114,7 @@
 							$term_slug=$term->slug;
 							$term_name =$term->name;
 							$img = get_stylesheet_directory_uri().'/images/logo-gunpla-kit-type-'.$term_slug.'.png';
-							echo "<li style='float:left;padding:5px;'><a href='".$term_link."'><img src='".$img."' title='".$term_name."' width='54'/></a></li>";
+							echo "<li><a href='".$term_link."'><img src='".$img."' title='".$term_name."' width='54'/></a></li>";
 						}
 					?>
 					</ul>
@@ -122,9 +122,9 @@
 
 
 
-                <div class="gb-sidebar-featured-kits">
+                <div class="widget gb-sidebar-featured-kits container-fluid">
                 	<h2>Featured Models</h2>
-                    <ul style="list-style:none;padding:0px;margin:0px;">
+                    <ul class="row">
                     	<?php
 							$temp = $wp_query;
 							$wp_query= null;
@@ -149,7 +149,7 @@
                         	<?php while ($wp_query->have_posts()) : $wp_query->the_post();
 								$featimg = wp_get_attachment_image_src( get_post_meta($post->ID,'GB_model-kit-imagick-id',true),'sidebar-half-thumb');
 							?>
-                            <li id="feat-kit-<?php echo($post->ID); ?>" style="float:left;padding:5px;">
+                            <li class="col-sm-6" id="feat-kit-<?php echo($post->ID); ?>">
                                 <a href="<?php echo(get_permalink($post->ID)); ?>" target="_blank">
                                 <figure>
                                 	<img src="<?php echo($featimg[0]); ?>" width="150" height="84" />
