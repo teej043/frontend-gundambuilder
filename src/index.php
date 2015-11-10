@@ -120,7 +120,7 @@ get_header(); ?>
 
 
 					<?php if (have_posts()):?>
-					<div class="gb-main-content gb-new-model-kits col-xs-12 col-sm-12 col-lg-9">
+					<div class="gb-main-content gb-new-model-kits col-xs-12 col-sm-12 col-lg-12">
 						<div class="gb-post-list">
 						<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 						<?php get_template_part( 'content', 'model-preview' ); ?>

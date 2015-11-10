@@ -25,16 +25,25 @@
 
 	<?php if ($type == "mobile-suit"){ ?>
     			<figure class="gb-mobile-suit-art loading">
-  					<img class="b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://placehold.it/200x150&text=placeholder"/>
+  					<img class="b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png"/>
             <div class="spinner">
               <div class="bounce1"></div>
               <div class="bounce2"></div>
               <div class="bounce3"></div>
             </div>
 
-		<?php }else{ ?>
+    <?php }else if ($type == "model-kit"){ ?>
 
-				<figure class="gb-model-kit-boxart b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://placehold.it/200x150&text=placeholder" style="background-image:url(http://placehold.it/200x150&text=placeholder);">
+				<figure class="gb-model-kit-boxart b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png" style="background-image:url(http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png);">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+
+    <?php }else{ ?>
+
+				<figure class="gb-post-head-image b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png" style="background-image:url(http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png);background-size:cover;min-height:200px;">
           <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
