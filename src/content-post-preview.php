@@ -8,42 +8,46 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <header class="row template-content-post-preview">
         <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
-            <h1 style="display:inline;font-size:42px;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>		
+            <h1 style="display:inline;font-size:42px;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
         </section>
-        
-        
+
+
         <section id="gb-post-meta-b" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <p class="gb-post-meta-post" style="float:left;text-align:left;">Posted By: <?php echo get_the_author(); ?> | Posted on <?php echo get_the_date(); ?></p>
         </section>
-        
+
         <?php
 			$thumb = get_post_thumbnail_id();
 			$img_url = wp_get_attachment_url( $thumb,'full' ); //get full URL to image (use "large" or "medium" if the images too big)
 			$image = aq_resize( $img_url, 300, 150, true ); //resize & crop the image
 		?>
-        
-		<?php 
+
+		<?php
 			if (has_post_thumbnail($post->ID)){
 		?>
-		
-        <figure class="gb-post-head-image col-xs-12 col-sm-7 col-md-12 col-lg-7 text-center" style="background-image:url(<?php echo($img_url); ?>);">
-            
+
+        <figure class="gb-post-head-image col-xs-12 col-sm-7 col-md-12 col-lg-7 text-center b-lazy" data-src="<?php echo($img_url); ?>" src="http://placehold.it/500x250&text=placeholder" style="">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
         </figure>
-		
+
 		<summary class="lead col-xs-12 col-sm-5 col-md-12 col-lg-5"><?php the_excerpt(); ?></summary>
-		
+
 		<?php } else { ?>
-			
+
 			<summary class="lead col-xs-12 col-sm-12 col-md-12 col-lg-12"><?php the_excerpt(); ?></summary>
-			
+
 		<?php } ?>
-		
+
     </header>
-    <section class="gb-post-content">                        
-        
+    <section class="gb-post-content">
+
     </section><!--- post content --->
-    
-    
+
+
     <footer class="entry-meta">
 		<?php
             /* translators: used between list items, there is a space after the comma */

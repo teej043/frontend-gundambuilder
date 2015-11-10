@@ -1,7 +1,47 @@
 
 
 
-/* Back to top */
+
+
+$(window).load(function(){
+	//lazy loading script
+	var bLazy = new Blazy({
+		  breakpoints: [{
+		  width: 420 // Max-width
+		  , src: 'data-src-small'
+			}]
+		  , success: function(element){
+		  setTimeout(function(){
+			// We want to remove the loader gif now.
+			// First we find the parent container
+			// then we remove the "loading" class which holds the loader image
+			var parent = element.parentNode;
+			parent.className = parent.className.replace(/\bloading\b/,'');
+		  }, 200);
+		}
+	});
+
+	//for the scroll list on mobile suit lists of gunpla kits
+	$('.gb-mobile-suit-art .kits-bar--vertical').each(function(){
+		var h = $(this).height(), hh = $(this).find('.kits').height();
+
+		if (!(hh < h)){
+			$(this).parent().find('.indicator-down').show();
+
+			$(this).on('scroll',function(){
+				var topY = $(this).offset().top, scrollY = $(this).scrollTop();
+				if (scrollY <= ((hh - h) - 10)){
+					$(this).parent().find('.indicator-down').show(300);
+				}else{
+					$(this).parent().find('.indicator-down').hide(300);
+				}
+			});
+		}else{
+				$(this).parent().find('.indicator-down').hide();
+		}
+	});
+
+});
 
 
 
@@ -135,6 +175,7 @@
 			})
 
 
+			/*
 			function loading(img)
 			{
 			  img.fadeOut(0, function() {
@@ -142,29 +183,9 @@
 			  });
 			}
 			$('.lazyload').lazyload({load: loading});
+			*/
 
 
-			//for the scroll list on mobile suit lists of gunpla kits
-
-			$('.gb-mobile-suit-art .kits-bar--vertical').each(function(){
-					var h = $(this).height(), hh = $(this).find('.kits').height();
-
-					if (!(hh < h)){
-						$(this).parent().find('.indicator-down').show();
-
-						$(this).on('scroll',function(){
-							var topY = $(this).offset().top, scrollY = $(this).scrollTop();
-							if (scrollY <= ((hh - h) - 10)){
-								$(this).parent().find('.indicator-down').show(300);
-							}else{
-								$(this).parent().find('.indicator-down').hide(300);
-							}
-						});
-					}else{
-							$(this).parent().find('.indicator-down').hide();
-					}
-
-			})
 
 
 

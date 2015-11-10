@@ -24,11 +24,23 @@
 	?>
 
 	<?php if ($type == "mobile-suit"){ ?>
-    			<figure class="gb-mobile-suit-art">
-					<img src="<?php echo($img_url[0]); ?>" />
+    			<figure class="gb-mobile-suit-art loading">
+  					<img class="b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://placehold.it/200x150&text=placeholder"/>
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+
 		<?php }else{ ?>
 
-				<figure class="gb-model-kit-boxart" style="background-image:url(<?php echo($img_url[0]); ?>);">
+				<figure class="gb-model-kit-boxart b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://placehold.it/200x150&text=placeholder" style="background-image:url(http://placehold.it/200x150&text=placeholder);">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
+
 		<?php } ?>
 
 
