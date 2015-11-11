@@ -4,6 +4,9 @@
 
 
 $(window).load(function(){
+
+
+
 	//lazy loading script
 	var bLazy = new Blazy({
 		  breakpoints: [{

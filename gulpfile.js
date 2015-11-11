@@ -94,7 +94,7 @@ gulp.task('scripts', function() {
     //.pipe(reload({stream:true}));
 });*/
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['copy-scripts'], function() {
   return glob('./src/js/main-**.js', function(err, files) {
     var tasks = files.map(function(entry) {
       return browserify({ entries: [entry] },{debug : true})
@@ -111,6 +111,11 @@ gulp.task('scripts', function() {
       });
     return es.merge.apply(null, tasks);
   })
+});
+
+gulp.task('copy-scripts', function(){
+  return gulp.src(['src/js/pkgd-**.min.js', 'src/js/assets/**'], {base: "./src"})
+    .pipe(gulp.dest( buildDest ));
 });
 
 gulp.task('scripts-build', function() {
