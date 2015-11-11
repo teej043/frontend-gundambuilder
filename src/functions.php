@@ -213,15 +213,16 @@ require get_template_directory() . '/inc/paginate.php';
 
 /* Exclude pages from search results */
 
+/*
 function mySearchFilter($query) {
 if ($query->is_search) {
-$query->set('post_type', 'post');
+$query->set('post_type', ['post','mobile-suit', 'model-kit', 'model']);
 }
 return $query;
 }
 
 add_filter('pre_get_posts','mySearchFilter');
-
+*/
 
 
 //ALLOW THUMBNAILS TO BE DISPLAYED IN THE DASHBOARD POST LIST

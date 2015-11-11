@@ -20,10 +20,14 @@
 			$thumb = get_post_thumbnail_id();
 			$img_url = wp_get_attachment_url( $thumb,'full' ); //get full URL to image (use "large" or "medium" if the images too big)
 			$image = aq_resize( $img_url, 300, 150, true ); //resize & crop the image
+      $hasExcerpt = has_excerpt( $post->ID);
+      $hasContent = (($post->post_content) == "" ? 0 : 1);
+      $hasThumb = has_post_thumbnail($post->ID);
+
 		?>
 
 		<?php
-			if (has_post_thumbnail($post->ID)){
+			if ($hasThumb && $hasContent){
 		?>
 
         <figure class="gb-post-head-image col-xs-12 col-sm-7 col-md-12 col-lg-7 text-center b-lazy" data-src="<?php echo($img_url); ?>" src="http://placehold.it/500x250&text=placeholder" style="">
@@ -35,8 +39,22 @@
         </figure>
 
 		<summary class="lead col-xs-12 col-sm-5 col-md-12 col-lg-5"><?php the_excerpt(); ?></summary>
+    <?php
+  }else if ($hasThumb==1 && $hasContent==0){
+    ?>
 
-		<?php } else { ?>
+      <figure class="gb-post-head-image col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center b-lazy" data-src="<?php echo($img_url); ?>" src="http://placehold.it/500x250&text=placeholder" style="">
+        <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+      </figure>
+
+  <summary class="lead col-xs-12 col-sm-5 col-md-12 col-lg-5"><?php the_excerpt(); ?></summary>
+
+
+		<?php } else if ($hasThumb==0 && $hasContent==1) { ?>
 
 			<summary class="lead col-xs-12 col-sm-12 col-md-12 col-lg-12"><?php the_excerpt(); ?></summary>
 

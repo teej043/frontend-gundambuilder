@@ -67,7 +67,7 @@ get_header(); ?>
 								</section>
 
 								<section id="gb-post-meta-b" class="col-xs-12 col-sm-5 col-md-5 col-lg-12">
-									<p class="gb-post-meta-builder">Model Builder: Admin</p><p class="gb-post-meta-post">Posted By: <?php echo get_the_author();?> | Posted on <?php echo(get_the_date( 'm/d/Y' )); ?></p>
+									<p class="gb-post-meta-builder">Model Builder: <?php echo get_the_author();?></p><p class="gb-post-meta-post">Posted By: <?php echo get_the_author();?> | Posted on <?php echo(get_the_date( 'm/d/Y' )); ?></p>
 								</section>
 
 								<?php
@@ -199,14 +199,14 @@ get_header(); ?>
 								  <?php if ( $turntable != 0) : ?>
 								  <div class="tab-pane" id="gb-builder-turntable">
 											<?php
-											$trntbl[0] = wp_get_attachment_url(get_post_meta($post->ID,'GB_model-kit-turntable-frame-first',true),'full');
-											$trntbl[1] = basename(wp_get_attachment_url(get_post_meta($post->ID,'GB_model-kit-turntable-sprite',true),'full'));
-											$trntbl[2] = get_post_meta($post->ID,'GB_model-kit-turntable-frame-width',true);
-											$trntbl[3] = get_post_meta($post->ID,'GB_model-kit-turntable-frame-height',true);
-											$trntbl[4] = get_post_meta($post->ID,'GB_model-kit-turntable-frame-total',true);
-											$trntbl[5] = get_post_meta($post->ID,'GB_model-kit-turntable-frame-start',true);
-											$trntbl[6] = get_post_meta($post->ID,'GB_model-kit-turntable-line-length',true);
-											$trntbl[7] = get_post_meta($post->ID,'GB_model-kit-turntable-speed',true);
+											$trntbl[0] = wp_get_attachment_url(get_post_meta( $post->ID, 'GB_model-kit-turntable-frame-first', true), 'full');
+											$trntbl[1] = basename(wp_get_attachment_url(get_post_meta( $post->ID, 'GB_model-kit-turntable-sprite', true), 'full'));
+											$trntbl[2] = get_post_meta( $post->ID, 'GB_model-kit-turntable-frame-width', true);
+											$trntbl[3] = get_post_meta( $post->ID, 'GB_model-kit-turntable-frame-height', true);
+											$trntbl[4] = get_post_meta( $post->ID, 'GB_model-kit-turntable-frame-total', true);
+											$trntbl[5] = get_post_meta( $post->ID, 'GB_model-kit-turntable-frame-start', true);
+											$trntbl[6] = get_post_meta( $post->ID, 'GB_model-kit-turntable-line-length', true);
+											$trntbl[7] = get_post_meta( $post->ID, 'GB_model-kit-turntable-speed', true);
 											$path = dirname(wp_get_attachment_url(get_post_meta($post->ID,'GB_model-kit-turntable-sprite',true),'full'));
 											echo '<img style="text-align:center;" src="'.$trntbl[0].'" width="'.$trntbl[2].'" height="'.$trntbl[3].'" class="reel" data-ratio="1" data-path="'.$path.'/" data-image="'.$trntbl[1].'" data-frames="'.$trntbl[4].'" data-frame="'.$trntbl[5].'" data-footage="'.$trntbl[6].'" data-speed="'.$trntbl[7].'" data-throwable="1.2" data-brake="0.2" data-responsive="TRUE" data-shy="true"/>';
 											?>

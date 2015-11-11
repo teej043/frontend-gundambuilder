@@ -20,8 +20,8 @@
 						<div class="gb-sidebar-search input-group">
 						  <input class="search-field form-control" placeholder="Search …" value="<?php the_search_query(); ?>" name="s" title="Search for:" type="search">
 						  <div class="input-group-btn">
-							<button id="search-button" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-							<input id="search-submit" class="search-submit btn btn-default" value="Search" type="submit">
+							<button id="search-button" type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span>Search</button>
+							<input id="search-submit" class="search-submit btn btn-default hidden" value="Search" type="submit">
 							<input id="hidden" type="hidden" value="model" name="post_type">
 
 
@@ -31,9 +31,11 @@
 							</button>
 
 							<ul class="dropdown-menu pull-right" role="menu">
-							  <li><a href="#">Site</a></li>
-							  <li><a href="#">Model Kits</a></li>
-							  <li><a href="#">Tutorials</a></li>
+							  <li><a href="#" data-post-type="">Site</a></li>
+								<li><a href="#" data-post-type="mobile-suit">Mobile Suits</a></li>
+							  <li><a href="#" data-post-type="model-kit">Model Kits</a></li>
+								<li><a href="#" data-post-type="model">Models</a></li>
+							  <li><a href="#" data-post-type="">Tutorials</a></li>
 							  <li><a href="#">Articles</a></li>
 							  <li class="divider"></li>
 							  <li><a href="#">Separated link</a></li>
@@ -88,7 +90,8 @@
 
 							jQuery('.gb-sidebar-search .dropdown-menu li a').click(function(){
 								//alert('waa');
-								var optName = jQuery(this).text();
+								var optName = jQuery(this).data('post-type'), optText = jQuery(this).text();
+								jQuery('.gb-sidebar-search #search-button').text('Search '+optText);
 								jQuery('.gb-sidebar-search #search-submit').val(optName);
 								jQuery('.gb-sidebar-search #hidden').val(optName);
 							});
