@@ -3,6 +3,7 @@
 
 
 
+
 $(window).load(function(){
 
 
@@ -24,21 +25,14 @@ $(window).load(function(){
 		}
 	});
 
+
 	//for the scroll list on mobile suit lists of gunpla kits
+
 	$('.gb-mobile-suit-art .kits-bar--vertical').each(function(){
-		var h = $(this).height(), hh = $(this).find('.kits').height();
+		var h = $(this).innerHeight(), hh = $(this).find('.kits').innerHeight();
 
 		if (!(hh < h)){
 			$(this).parent().find('.indicator-down').show();
-
-			$(this).on('scroll',function(){
-				var topY = $(this).offset().top, scrollY = $(this).scrollTop();
-				if (scrollY <= ((hh - h) - 10)){
-					$(this).parent().find('.indicator-down').show(300);
-				}else{
-					$(this).parent().find('.indicator-down').hide(300);
-				}
-			});
 		}else{
 				$(this).parent().find('.indicator-down').hide();
 		}
@@ -49,6 +43,27 @@ $(window).load(function(){
 
 
 	$(document).ready(function () {
+
+		//for the scroll list on mobile suit lists of gunpla kits
+		$('.gb-mobile-suit-art .kits-bar--vertical').each(function(){
+			var h = $(this).innerHeight(), hh = $(this).find('.kits').innerHeight();
+
+			if (!(hh < h)){
+				$(this).parent().find('.indicator-down').show();
+
+				$(this).on('scroll',function(){
+					var topY = $(this).offset().top, scrollY = $(this).scrollTop();
+					if (scrollY <= ((hh - h) - 60)){
+						$(this).parent().find('.indicator-down').show(300);
+					}else{
+						$(this).parent().find('.indicator-down').hide(300);
+					}
+					console.log(h + ',' + hh + ',' + ',' + (hh - h) + ',' + scrollY);
+				});
+			}else{
+					$(this).parent().find('.indicator-down').hide();
+			}
+		});
 
 			if (($('#ms-select').length) > 0){
 				$('#ms-select').select2({ placeholder : '' }).on("change", function(e) {
