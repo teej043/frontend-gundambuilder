@@ -18,7 +18,7 @@ require_once RWMB_DIR . 'meta-box.php';
 
 include ( 'inc/gb-post-metas.php' );
 include ( 'inc/gb-post-types.php' );
-//include ( 'inc/custom-gallery.php' );
+include ( 'inc/custom-gallery.php' );
 
 /* Theme updater */
 
@@ -172,6 +172,7 @@ function gndmbldr_scripts() {
 		wp_enqueue_script( 'dropzone', get_template_directory_uri() . '/js/assets/dropzone.min.js', array( 'jquery' ), '20120206', true );
 	}
 
+	wp_enqueue_script( 'mfp', get_template_directory_uri() . '/js/assets/jquery.magnific-popup.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/assets/custom.js', array(), '20120206', true );
 
 	/*

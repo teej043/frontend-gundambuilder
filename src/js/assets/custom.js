@@ -206,6 +206,31 @@ $(window).load(function(){
 
 
 
+			// Gallery + Popup
+			if ($('.gallery-wrapper').length){
+				var par = $('.gallery-wrapper');
+				var list = par.find('>ul');
+				console.log(list.find("li:first-child").data('mfp-src'));
+				list.magnificPopup({
+					delegate: 'li',
+					type: 'image',
+				  gallery:{
+				    enabled:true
+				  },
+					image:{
+						titleSrc: 'data-caption'
+					},
+					callbacks: {
+					  beforeOpen: function() {
+					    //console.log('Start of popup initialization');
+					  },
+					  elementParse: function(item) {
+					    //console.log('Parsing content. Item object that is being parsed:', item);
+					  }
+					}
+				});
+			}
+
 
 		});
 

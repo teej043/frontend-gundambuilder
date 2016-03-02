@@ -181,6 +181,7 @@ body{
 
 .gb-post-content{
 	/* wordpress classes */
+	padding:20px 0;
 	.aligncenter{
 		margin: 0 auto;
 	}
@@ -1338,5 +1339,22 @@ background: #fff;
 
 	.gb-nav-cat li{
 		width:50%;
+	}
+}
+
+
+
+
+.gallery-wrapper{
+	ul{
+		list-style:none;
+		padding:0;
+		text-align: center;
+		li{
+			vertical-align: top;
+			display: inline-block;
+			width:150px;
+			margin:5px;
+		}
 	}
 }
