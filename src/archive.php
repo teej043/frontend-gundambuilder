@@ -50,7 +50,6 @@ get_header(); ?>
 						<?php
                                 if ( is_category() ) :
                                     single_cat_title();
-																		echo 'test';
 
                                 elseif ( is_tag() ) :
                                     single_tag_title();

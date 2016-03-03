@@ -60,7 +60,8 @@ get_header(); ?>
 														?>
 
                         <?php endwhile; // end of the loop. ?>
-
+												<div style="clear:both"></div>
+												<?php bootstrap_pagination();?>
 
 					</div><!--- main content --->
 
