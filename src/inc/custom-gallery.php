@@ -54,9 +54,10 @@ function my_post_gallery($output, $attr) {
 //      $img = wp_get_attachment_image_src($id, 'full');
         $imgHires = wp_get_attachment_image_src($id, 'full');
         $caption = $attachment->post_excerpt;
+        $fnam = basename($imgHires[0], ".jpg");
 
         $output .= "<li href=\"{$imgHires[0]}\" data-mfp-src=\"{$imgHires[0]}\" data-caption=\"$caption\" >\n";
-        $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"\" />\n";
+        $output .= "<img src=\"{$img[0]}\" width=\"{$img[1]}\" height=\"{$img[2]}\" alt=\"$fnam\" />\n";
         $output .= "<span>".$caption."</span>\n";
         $output .= "</li>\n";
     }

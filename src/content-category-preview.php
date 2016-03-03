@@ -18,8 +18,9 @@
 
         <?php
 			$thumb = get_post_thumbnail_id();
-			$img_url = wp_get_attachment_url( $thumb,'full' ); //get full URL to image (use "large" or "medium" if the images too big)
-			$image = aq_resize( $img_url, 300, 150, true ); //resize & crop the image
+			//$img_url = wp_get_attachment_url( $thumb,'full' );
+      $img_url = wp_get_attachment_image_src( $thumb, 'large' );
+			//$image = aq_resize( $img_url, 300, 150, true ); //resize & crop the image
 		?>
 
 		<?php
@@ -27,7 +28,7 @@
 		?>
 
         <figure class="gb-post-head-image col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" >
-          <div class="bgimg" style="background-image:url(<?php echo($img_url); ?>);"></div>
+          <div class="bgimg" style="background-image:url(<?php echo($img_url[0]); ?>);"></div>
         </figure>
 
 		<summary class="lead col-xs-12 col-sm-12 col-md-12 col-lg-12"><?php the_excerpt(); ?></summary>
