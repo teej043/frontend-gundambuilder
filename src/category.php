@@ -63,6 +63,7 @@ get_header(); ?>
 												<div style="clear:both"></div>
 												<?php bootstrap_pagination();?>
 
+
 					</div><!--- main content --->
 
 				</div><!-- row --->

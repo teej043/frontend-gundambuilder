@@ -8,6 +8,8 @@
 
 //framework
 //@import "libs/framework-susy";
-@import "libs/framework-bootstrap";
+@import
+  "libs/framework-bootstrap",
+  "libs/magnificpopup.scss";
 
 @import 'components/base';

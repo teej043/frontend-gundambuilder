@@ -40,7 +40,7 @@ get_header(); ?>
 					</div>
 					<div style="clear:both"></div>
 					<div class="gb-main-content gb-content-posts col-md-12">
-
+								
 						<?php if ( have_posts() ) : ?>
 
                             <?php /* Start the Loop */ ?>
