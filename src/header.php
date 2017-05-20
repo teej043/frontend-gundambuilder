@@ -53,20 +53,22 @@
 
 <body <?php body_class(); ?>>
 	<div id="page" class="<?php echo( $template ); ?>">
-		<header class="gb-head clear-fix">
-			<div class="gb-logo text-center"><a href="<?php bloginfo('siteurl'); ?>"><img id="gb-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/gb-logo.png" width="603" height="348"></a></div>
-			<div class="gb-header-mobile">
-				<div class="gb-logo-mobile"><a href="<?php bloginfo('siteurl'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/gb-logo.png" width="603" height="348"></a></div>
-				<div class="gb-buttons-mobile">
-					<button><span class="glyphicon glyphicon-th-list"></span></button>
+		<header class="gb-head gb-hdr clear-fix">
+			<div class="gb-logo gb-hdr__logo text-center"><a href="<?php bloginfo('siteurl'); ?>"><img id="gb-logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/gb-logo.png" width="603" height="348"></a></div>
+			<div class="gb-header-mobile gb-hdr__mobile">
+				<div class="gb-logo-mobile gb-hdr__mobile__logo"><a href="<?php bloginfo('siteurl'); ?>"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/gb-logo.png" width="603" height="348"></a></div>
+				<div class="gb-buttons-mobile gb-hdr__burger">
+					<div class="burger-wrapper">
+					  <span class="burger"></span>
+					</div>
 				</div>
 			</div>
 
-			<nav id="access" role="navigation">
+			<nav class="gb-menubar" id="access" role="navigation">
 				<h1 class="assistive-text section-heading" style="display:none;"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
 				<div class="skip-link screen-reader-text" style="display:none;"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
 
-				<?php wp_nav_menu( array('location' => 'primary' ,'menu' => 'Menu 1','container'=> 'div','container_class' => 'menu','menu_class' => 'navi', )); ?>
+				<?php wp_nav_menu( array('location' => 'primary' ,'menu' => 'Menu 1','container'=> 'div','container_class' => 'menu gb-menu','menu_class' => 'navi gb-menu__list', )); ?>
 
 					<!-- SAMPLE MENU HTML GENERATED
 

@@ -37,9 +37,9 @@ get_header(); ?>
 					</div>
 					<div style="clear:both"></div>
 					<div class="gb-main-content col-md-12">
-                    	<div>
+                    	<h1 class="hide">
                         	<?php the_title(); ?>
-                        </div>
+                        </h1>
 
 						<?php while ( have_posts() ) : the_post(); ?>
 

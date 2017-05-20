@@ -1,6 +1,9 @@
 //variables
 @import "variables";
 
+// utilities
+@import "mixins/include-media";
+
 //icons and fonts
 @import
   "components/fonts",
@@ -10,6 +13,12 @@
 //@import "libs/framework-susy";
 @import
   "libs/framework-bootstrap",
-  "libs/magnificpopup.scss";
+  "libs/magnificpopup.scss",
+  "libs/animations";
 
 @import 'components/base';
+
+
+
+@import 'components/topbar';
+@import 'components/navseries';

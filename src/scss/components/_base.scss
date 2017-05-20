@@ -16,35 +16,7 @@ body{
 }
 
 
-/*-- HEADER ---*/
 
-.gb-head{
-	display:none;
-	background:#999;
-  .gb-logo-mobile{
-    img{
-    	height:100%;
-    	width:auto;
-    }
-  }
-  #access{
-    .menu{
-      ul{
-      	list-style:none;
-      	margin:0px;
-      	padding:0px;
-      	text-transform:uppercase;
-      	font-family: "Norwester",Helvetica,Arial,sans-serif;
-				li{
-					a{
-						color:white;
-						font-size:18px;
-					}
-				}
-      }
-    }
-  }
-}
 
 .gb-sidebar{
 	display:none;
@@ -375,6 +347,14 @@ body{
 .gb-head{
 
 }
+
+
+.gb-page{
+	@include media('<widescreen'){
+		padding-top:50px;
+	}
+}
+
 
 .gb-main{
 	.gb-page{
@@ -818,59 +798,7 @@ background: #fff;
 /* ========= Phones ========= */
 @media(max-width:767px){
 
-	.gb-head{
-		display:block;
-		width:100%;
-		float:left;
-		min-height:50px;
-		position:fixed;
-		top:0px;
-		z-index:999;
-	}
 
-	.gb-head .gb-logo{
-		display:none;
-	}
-
-	.gb-head .gb-logo-mobile{
-		height: 50px;
-		width: 35%;
-	}
-
-	.gb-head .gb-logo-mobile span{
-		padding: 15px;
-		/* float: left; */
-		display: block;
-	}
-
-	.gb-head .gb-header-mobile{
-		display:block;
-		position:relative;
-	}
-
-	.gb-head .gb-header-mobile .gb-buttons-mobile{
-		position:absolute;
-		padding:5px;
-		top:0px;
-		right:0px;
-	}
-
-	.gb-head .gb-header-mobile .gb-buttons-mobile button{
-		width:40px;
-		height:40px;
-	}
-
-	.gb-head #access .menu ul{
-		background:#ccc;
-		position:absolute;
-		top:50px;
-		width:100%;
-		display:none;
-	}
-
-	.gb-head #access .menu ul li{
-		width:100%;
-	}
 
 	.gb-foot{
 		width:100%;
@@ -955,49 +883,49 @@ background: #fff;
 /* ========= iPad, Tablets ======== */
 @media(min-width:768px){
 
-	.gb-head{
-		display:block;
-		width:100%;
-		float:left;
-		min-height:50px;
-		position:absolute;
-		top:0px;
-		z-index:999;
-	}
-
-	.gb-head .gb-logo{
-		float:left;
-		height:50px;
-		width:16.66%;
-		background:#fff;
-	}
-
-	.gb-head .gb-logo img{
-		width:auto;
-		height:100%;
-	}
-
-	.gb-head .gb-header-mobile{
-		display:none;
-	}
-
-	.gb-head #access .menu ul{
-		position:relative;
-		height:100%;
-		width:auto;
-		top:0px;
-		float:left;
-		display: block;
-	}
-
-	.gb-head #access .menu ul li{
-		position:relative;
-		top:0px;
-		height:100%;
-		width:auto;
-		padding:15px;
-		float:left;
-	}
+	//.gb-head{
+	//	display:block;
+	//	width:100%;
+	//	float:left;
+	//	min-height:50px;
+	//	position:absolute;
+	//	top:0px;
+	//	z-index:999;
+	//}
+	//
+	//.gb-head .gb-logo{
+	//	float:left;
+	//	height:50px;
+	//	width:16.66%;
+	//	background:#fff;
+	//}
+	//
+	//.gb-head .gb-logo img{
+	//	width:auto;
+	//	height:100%;
+	//}
+	//
+	//.gb-head .gb-header-mobile{
+	//	display:none;
+	//}
+	//
+	//.gb-head #access .menu ul{
+	//	position:relative;
+	//	height:100%;
+	//	width:auto;
+	//	top:0px;
+	//	float:left;
+	//	display: block;
+	//}
+	//
+	//.gb-head #access .menu ul li{
+	//	position:relative;
+	//	top:0px;
+	//	height:100%;
+	//	width:auto;
+	//	padding:15px;
+	//	float:left;
+	//}
 
 
 	.gb-post-head-image{
@@ -1086,26 +1014,26 @@ background: #fff;
 
 	}
 
-	.gb-head{
-		width:100%;
-		min-height:65px;
-		position:relative;
-		zoom: 1;
-
-	}
-
-	.gb-head #access .menu ul{
-		display: block!important;
-	}
-
-	.gb-head .gb-logo{
-		height: 65px;
-	}
-
-	.gb-head .gb-logo img{
-		width:auto;
-		height:100%;
-	}
+	//.gb-head{
+	//	width:100%;
+	//	min-height:65px;
+	//	position:relative;
+	//	zoom: 1;
+	//
+	//}
+	//
+	//.gb-head #access .menu ul{
+	//	display: block!important;
+	//}
+	//
+	//.gb-head .gb-logo{
+	//	height: 65px;
+	//}
+	//
+	//.gb-head .gb-logo img{
+	//	width:auto;
+	//	height:100%;
+	//}
 
 	#toggle-show-series{
 		display:block;
@@ -1171,7 +1099,7 @@ background: #fff;
 
 
 
-@media(min-width:1200px){
+@media(min-width: $screen-lg){
 
 	body{
 		background:#aaa;
@@ -1184,35 +1112,37 @@ background: #fff;
 	}
 
 
-	.gb-head{
-		width:10%;
-		min-height:100%;
-	}
-
-	.gb-head .gb-logo{
-		width:100%;
-		height:auto;
-		padding:10px 0px;
-	}
-
-	.gb-head .gb-logo img{
-		width:90%;
-		height:auto;
-	}
-
-	.gb-head .gb-logo span{
-		text-align:center;
-	}
+	//.gb-head{
+	//	width:10%;
+	//	min-height:100%;
+	//}
+	//
+	//.gb-head .gb-logo{
+	//	width:100%;
+	//	height:auto;
+	//	padding:10px 0px;
+	//}
+	//
+	//.gb-head .gb-logo img{
+	//	width:90%;
+	//	height:auto;
+	//}
+	//
+	//.gb-head .gb-logo span{
+	//	text-align:center;
+	//}
+	//
+	//.gb-head #access .menu ul li{
+	//	width:100%;
+	//	padding:15px;
+	//	float:left;
+	//}
 
 	.gb-sidebar{
 		top:0px;
 	}
 
-	.gb-head #access .menu ul li{
-		width:100%;
-		padding:15px;
-		float:left;
-	}
+
 
 	#toggle-show-series{
 		display:none;
@@ -1304,7 +1234,7 @@ background: #fff;
 }
 
 
-@media(min-width:1366px){
+@media(min-width: $screen-lg){
 	.gb-nav-cat li{
 		width:100%;
 	}

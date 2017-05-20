@@ -141,28 +141,35 @@ $(window).load(function(){
 				}
 			);
 
-			$('.gb-buttons-mobile button').click(function(){
-				$('.gb-head .menu ul').slideToggle('fast');
+			$('.gb-buttons-mobile').click(function(){
+				//$('.gb-head .gb-menu').slideToggle('fast');
+				$(this).toggleClass('active');
+				$('.gb-hdr').toggleClass('menu-on');
+				$('html').toggleClass('no-scroll');
 			});
 
-			var ww;
-			ww = $(window).width();
-
-			if (ww > 768){
-				$('.gb-head .menu ul').show();
-			}
-
-			$(window).resize(function(){
-				ww = $(document).width();
-
-				if (ww < 768-15){
-					$('.gb-head .menu ul').hide();
-				}
-				else if (ww >= 768-15){
-					$('.gb-head .menu ul').show();
-				}
+			$('.gb-hdr__burger').on('click', function(){
 
 			});
+
+			// var ww;
+			// ww = $(window).width();
+			//
+			// if (ww > 768){
+			// 	$('.gb-head .menu ul').show();
+			// }
+			//
+			// $(window).resize(function(){
+			// 	ww = $(document).width();
+			//
+			// 	if (ww < 768-15){
+			// 		$('.gb-head .menu ul').hide();
+			// 	}
+			// 	else if (ww >= 768-15){
+			// 		$('.gb-head .menu ul').show();
+			// 	}
+			//
+			// });
 
 
 
