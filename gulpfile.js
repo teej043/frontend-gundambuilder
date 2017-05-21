@@ -1,8 +1,5 @@
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
-  browserify = require('browserify'),
-  source = require('vinyl-source-stream'),
-  buffer = require('vinyl-buffer'),
   rename = require('gulp-rename'),
   glob = require('glob'),
   browserSync = require('browser-sync'),
@@ -19,8 +16,17 @@ var gulp = require('gulp'),
   imagemin = require('gulp-imagemin'),
   iconfont = require('gulp-iconfont'),
   iconfontcss = require('gulp-iconfont-css'),
-  del = require('del'),
-  es = require('event-stream');
+  del = require('del');
+
+
+  // BROWSERIFY TOOLS
+  var browserify = require('browserify'),
+      source = require('vinyl-source-stream'),
+      buffer = require('vinyl-buffer'),
+      rename = require('gulp-rename'),
+      merge = require('merge-stream'),
+      es = require('event-stream');
+
 
 var notifyError = function(err, lang) {
   console.log(err);
@@ -94,6 +100,25 @@ gulp.task('scripts', function() {
     //.pipe(reload({stream:true}));
 });*/
 
+// gulp.task('scripts', ['copy-scripts'], function() {
+//   return glob('./src/js/main-**.js', function(err, files) {
+//     var tasks = files.map(function(entry) {
+//       return browserify({ entries: [entry] },{debug : true})
+//         .bundle()
+//         .pipe(source(entry))
+//         .pipe(buffer())
+//         //.pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
+//         .pipe(rename({
+//           prefix: 'pkgd-',
+//           extname: '.min.js'
+//         }))
+//         //.pipe(gulp.dest('.'));
+//         .pipe(gulp.dest( buildDest ));
+//       });
+//     return es.merge.apply(null, tasks);
+//   })
+// });
+
 gulp.task('scripts', ['copy-scripts'], function() {
   return glob('./src/js/main-**.js', function(err, files) {
     var tasks = files.map(function(entry) {
@@ -101,21 +126,22 @@ gulp.task('scripts', ['copy-scripts'], function() {
         .bundle()
         .pipe(source(entry))
         .pipe(buffer())
-        //.pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
+        .pipe(uglify({compress: {pure_funcs: [ '' ]}}))
+        //.pipe(inject.prepend('/* \n** Made By EB Warriors '+now.getFullYear()+'\n** Build at: ' + dt + '\n*/ \n'))
         .pipe(rename({
           prefix: 'pkgd-',
           extname: '.min.js'
         }))
-        //.pipe(gulp.dest('.'));
-        .pipe(gulp.dest( buildDest ));
+        .pipe(gulp.dest('.'));
       });
     return es.merge.apply(null, tasks);
   })
 });
 
+
 gulp.task('copy-scripts', function(){
-  return gulp.src(['src/js/pkgd-**.min.js', 'src/js/assets/**'], {base: "./src"})
-    .pipe(gulp.dest( buildDest ));
+  return gulp.src(['src/js/pkgd-**.min.js'], {base: "./src/js"})
+    .pipe(gulp.dest( buildDest+'/js' ));
 });
 
 gulp.task('scripts-build', function() {
@@ -241,7 +267,7 @@ gulp.task('default', function () {
   gulp.watch('./src/scss/**/{,*/}*.{scss,sass}', ['sass']);
   gulp.watch('src/html/**/*.html', ['html']);
   gulp.watch('src/**/*.php', ['php']);
-  gulp.watch(['src/main*.js','src/js/assets/*.js','src/js/general/*.js'], ['scripts']);
+  gulp.watch(['src/main*.js','src/js/assets/*.js','src/js/general/*.js','src/js/custom/**/{,*/}*.js'], ['scripts']);
 });
 
 gulp.task('build', function(callback) {

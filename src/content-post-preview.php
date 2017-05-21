@@ -5,7 +5,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
     <header class="row template-content-post-preview">
         <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
             <h1 style="display:inline;font-size:42px;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>

@@ -10,9 +10,9 @@
 
 
         </main><!--- /MAIN ---->
-    
+
         <div style="clear:both;"></div>
-        
+
         <!--- FOOOTER ---->
         <footer id="colophon" class="gb-foot site-footer" role="contentinfo">
             <?php get_sidebar( 'footer' ); ?>
@@ -22,20 +22,21 @@
                 <img src="<?php bloginfo('stylesheet_directory'); ?>/images/img-site-footer.png" height="40" />
             </div><!-- .site-info -->
         </footer><!--- /FOOTER ---->
-    
+
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        
-       
+        <script src="<?php bloginfo('stylesheet_directory'); ?>/js/pkgd-main-deps.min.js"></script>
+
+
     </div><!-- #page -->
 
-	<?php 
-	$brwsr = $_SERVER["HTTP_USER_AGENT"];  
+	<?php
+	$brwsr = $_SERVER["HTTP_USER_AGENT"];
 	//echo(strpos($brwsr,'MSIE 9.0'));
 	if (( strpos($brwsr, 'MSIE 7') != false ) || ( strpos($brwsr, 'MSIE 8') != false )) {
-	
+
 	?>
 	<div id="old-browser" style="position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:99999;background:#ccc;">
 	<div style="position:fixed;margin-left:-300px;left:50%;width:600px;height:500px;z-index:999;top:50px;background:#fff;text-align:left;border:1px #aaa solid;">
@@ -47,10 +48,10 @@
 	</div>
 	</div>
 	<?php } ?>
-	
-	
+
+
     <?php wp_footer(); ?>
-	
+
 	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

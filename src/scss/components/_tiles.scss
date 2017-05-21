@@ -1,0 +1,82 @@
+.gb-main-content{
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.gb-tile{
+  background-color:gray;
+  background-clip: content-box;
+  margin-bottom:$grid-gutter-width;
+  float:none!important;
+  overflow: hidden;
+
+
+  margin-bottom:0px;
+  background-color:transparent;
+
+
+  @include make-xs-column(6);
+  //@include make-ms-column(6);
+  @include make-sm-column(6);
+
+
+  &.type-post{
+    @include make-xs-column(6);
+    //@include make-ms-column(6);
+    @include make-sm-column(3);
+    &.category-hauls{
+      @include make-xs-column(6);
+      //@include make-ms-column(6);
+      @include make-sm-column(3);
+    }
+    &.category-parts{
+      @include make-xs-column(6);
+      //@include make-ms-column(6);
+      @include make-sm-column(3);
+    }
+  }
+  &.type-mobile-suit{
+    @include make-xs-column(6);
+    //@include make-ms-column(6);
+    @include make-sm-column(6);
+  }
+
+  &:nth-last-child(1), &:nth-last-child(2){
+    @include make-xs-column(6);
+    //@include make-ms-column(6);
+    @include make-sm-column(3);
+  }
+
+
+  padding-left:0px!important;
+  padding-right:0px!important;
+}
+
+.gb-tile__sizer{
+  display:block;
+  padding:0px;
+  width:100%;
+  height:auto;
+}
+
+.gb-tile__content{
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  padding:5px;
+  background-clip: content-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Safari */
+ -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                              supported by Chrome and Opera */
+}

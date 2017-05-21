@@ -156,7 +156,7 @@ function gndmbldr_scripts() {
 	}
 
   //bootstrap js and others
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/pkgd-main-deps.min.js', array( 'jquery' ), '20120206', true );
+	//wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/pkgd-main-deps.min.js', array( 'jquery' ), '20120206', true );
 
 
 	wp_enqueue_script( 'columnizer', get_template_directory_uri() . '/js/assets/jquery.columnizer.js', array( 'jquery' ), '20120206', true );
@@ -479,7 +479,7 @@ add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
 		}else{
 			function filter_archive($query) {
 
-				$query->set('post_type', array('post', 'model-kit', 'accessory','mobile-suit'));
+				$query->set('post_type', array('post', 'model', 'model-kit', 'accessory','mobile-suit'));
 				return $query;
 			};
 			add_filter('pre_get_posts', 'filter_archive');

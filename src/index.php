@@ -18,7 +18,7 @@ get_header(); ?>
 
 	<main class="gb-main container-fluid template-index">
 		<div class="gb-page row">
-			<aside class="gb-aside-nav col-xs-12 col-sm-2 col-md-12 col-lg-2 visible-sm visible-md visible-lg" style="background:#fff;">
+			<aside class="gb-aside-nav col-xs-12 col-sm-2 col-md-12 col-lg-1 visible-sm visible-md visible-lg" style="background:#fff;">
 				<div class="row">
 					<nav class="col-md-12 col-lg-12" style="background:#fff;">
                     	<div id="toggle-show-series">Show Mobile Suit Series <span class="caret"></span></div>
@@ -28,7 +28,7 @@ get_header(); ?>
 					</nav>
 				</div>
 			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
+			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-8" style="background:#fff;">
 				<div class="row">
 					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
 						<div class="gb-search input-group input-group-lg input-group-sm">
@@ -40,7 +40,7 @@ get_header(); ?>
 					</div>
 					<div style="clear:both"></div>
 					<div class="gb-main-content gb-content-posts col-md-12">
-								
+
 						<?php if ( have_posts() ) : ?>
 
                             <?php /* Start the Loop */ ?>
@@ -51,7 +51,7 @@ get_header(); ?>
                                      * If you want to overload this in a child theme then include a file
                                      * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                      */
-                                    get_template_part( 'content', 'post-preview' );
+                                    get_template_part( 'content', 'post-preview-tiles' );
                                 ?>
 
                             <?php endwhile; ?>
