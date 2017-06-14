@@ -42,6 +42,7 @@
   <?php
     $thumb = get_post_thumbnail_id();
     $img_url = wp_get_attachment_image_src( $thumb, 'large' ); //get full URL to image (use "large" or "medium" if the images too big)
+    $img_url_tiny = wp_get_attachment_image_src( $thumb, 'micro' );
     //$image = aq_resize( $img_url, 300, 150, true ); //resize & crop the image
     $hasExcerpt = has_excerpt( $post->ID);
     $hasContent = (($post->post_content) == "" ? 0 : 1);
@@ -49,8 +50,8 @@
 
   ?>
 
-  <section class="gb-tile__content" style="background-image:url(<?php echo($img_url[0]); ?>)">
-
+  <section class="gb-tile__content lazy" data-src="<?php echo($img_url[0]); ?>">
+    <div class="lazy__placeholder" style="background-image:url(<?php echo($img_url_tiny[0]); ?>)"></div>
 
 
     <header class="template-content-post-preview hide">
@@ -70,7 +71,8 @@
 			if ($hasThumb && $hasContent){
 		?>
 
-        <figure class="gb-post-head-image text-center b-lazy hide" data-src="<?php echo($img_url[0]); ?>" src="http://placehold.it/500x250&text=placeholder" style="">
+        <figure class="gb-post-head-image text-center lazy hide" data-src="<?php echo($img_url[0]); ?>">
+          <div class="lazy__placeholder" style="background-image:url(<?php echo($img_url_tiny[0]); ?>)"></div>
           <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
@@ -83,7 +85,8 @@
   }else if ($hasThumb==1 && $hasContent==0){
     ?>
 
-      <figure class="gb-post-head-image text-center b-lazy hide" data-src="<?php echo($img_url[0]); ?>" src="http://placehold.it/500x250&text=placeholder" style="">
+      <figure class="gb-post-head-image text-center lazy hide" data-src="<?php echo($img_url[0]); ?>">
+        <div class="lazy__placeholder" style="background-image:url(<?php echo($img_url_tiny[0]); ?>)"></div>
         <div class="spinner">
           <div class="bounce1"></div>
           <div class="bounce2"></div>

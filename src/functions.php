@@ -74,6 +74,7 @@ function gndmbldr_setup() {
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'homepage-preview-thumb', 420, 280, true ); //(cropped)
 		add_image_size( 'sidebar-half-thumb', 150 );
+    add_image_size( 'micro', 10 );
 	}
 
 	/**
@@ -158,9 +159,9 @@ function gndmbldr_scripts() {
   //bootstrap js and others
 	//wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/pkgd-main-deps.min.js', array( 'jquery' ), '20120206', true );
 
-
+  wp_enqueue_script( 'bootstrapjs', get_template_directory_uri() . '/js/assets/bootstrap.js', array( 'jquery' ), '20120206', false);
 	wp_enqueue_script( 'columnizer', get_template_directory_uri() . '/js/assets/jquery.columnizer.js', array( 'jquery' ), '20120206', true );
-	wp_enqueue_script( 'blazy', get_template_directory_uri() . '/js/assets/blazy.min.js', array( 'jquery' ), '20120206', true );
+	wp_enqueue_script( 'blazy', get_template_directory_uri() . '/js/assets/blazy.js', array( 'jquery' ), '20120206', true );
 	//wp_enqueue_script( 'lazyload-any', get_template_directory_uri() . '/js/assets/jquery.lazyload-any.js', array( 'jquery' ), '20120206', true );
 
 	if (is_singular('model') == true){
@@ -174,6 +175,10 @@ function gndmbldr_scripts() {
 
 	wp_enqueue_script( 'mfp', get_template_directory_uri() . '/js/assets/jquery.magnific-popup.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/assets/custom.js', array(), '20120206', true );
+
+  wp_enqueue_script( 'dotimeout', get_template_directory_uri() . '/js/assets/jquery.ba-dotimeout.js', array('jquery'), '20120206', true );
+  wp_enqueue_script( 'packery', get_template_directory_uri() . '/js/assets/packery.pkgd.min.js', array('jquery'), '20120206', true );
+  wp_enqueue_script( 'tiles', get_template_directory_uri() . '/js/assets/scripts.js', array('jquery'), '20120206', true );
 
 	/*
 	$object = array(
@@ -748,6 +753,47 @@ global $template;
 echo '<span class="hidden">'.$template.'</span>';
 //print_r($template);
 }
+
+
+
+/**
+ * AJAX Load More
+ * @link http://www.billerickson.net/infinite-scroll-in-wordpress
+ */
+function be_ajax_load_more() {
+	$args = isset( $_POST['query'] ) ? array_map( 'esc_attr', $_POST['query'] ) : array();
+	$args['post_type'] = isset( $args['post_type'] ) ? esc_attr( $args['post_type'] ) : ['post','model','mobile-suit'];
+	$args['paged'] = esc_attr( $_POST['page'] );
+	$args['post_status'] = 'publish';
+	ob_start();
+	$loop = new WP_Query( $args );
+	if( $loop->have_posts() ): while( $loop->have_posts() ): $loop->the_post();
+		get_template_part( 'content', 'post-preview-tiles' );
+	endwhile; endif; wp_reset_postdata();
+	$data = ob_get_clean();
+	wp_send_json_success( $data );
+	wp_die();
+}
+add_action( 'wp_ajax_be_ajax_load_more', 'be_ajax_load_more' );
+add_action( 'wp_ajax_nopriv_be_ajax_load_more', 'be_ajax_load_more' );
+
+
+/**
+ * Javascript for Load More
+ *
+ */
+function be_load_more_js() {
+	global $wp_query;
+	$args = array(
+		'url'   => admin_url( 'admin-ajax.php' ),
+		'query' => $wp_query->query,
+	);
+
+	wp_enqueue_script( 'be-load-more', get_stylesheet_directory_uri() . '/js/assets/loadmore.js', array( 'jquery' ), '1.0', true );
+	wp_localize_script( 'be-load-more', 'beloadmore', $args );
+
+}
+add_action( 'wp_enqueue_scripts', 'be_load_more_js' );
 
 
 ?>

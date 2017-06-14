@@ -30,6 +30,7 @@
     "glob": "^5.0.5",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^2.1.0",
+    "gulp-concat": "^2.6.0",
     "gulp-file-include": "^0.13.7",
     "gulp-htmlhint": "^0.1.1",
     "gulp-iconfont": "^1.0.0",
@@ -58,6 +59,7 @@
     "modernizr": "./src/js/custom/plugins/modernizr.js",
     "owlcarousel": "./bower_components/owl.carousel/dist/owl.carousel.js",
     "dotimeout": "./src/js/custom/plugins/jquery.ba-dotimeout.js",
+    "blazy": "./src/js/custom/plugins/blazy.js",
     "imagesloaded": "./src/js/custom/plugins/imagesloaded.js",
     "packery": "./src/js/custom/plugins/packery.js",
     "app": "./src/js/custom/custom.js"
@@ -78,6 +80,9 @@
         "jquery:jQuery"
       ],
       "exports": "imagesloaded"
+    },
+    "blazy": {
+      "exports": "Blazy"
     }
   },
   "browserify": {

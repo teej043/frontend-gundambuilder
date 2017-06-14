@@ -5,6 +5,7 @@ var gulp = require('gulp'),
   browserSync = require('browser-sync'),
   reload      = browserSync.reload,
   watch = require('gulp-watch'),
+  concat = require('gulp-concat'),
   runSequence = require('run-sequence'),
   minifyCSS = require('gulp-minify-css'),
   uglify = require('gulp-uglify'),
@@ -119,6 +120,26 @@ gulp.task('scripts', function() {
 //   })
 // });
 
+gulp.task('scripts-bundle', function() {
+  return gulp.src([
+      //'src/js/lib/jquery-1.11.2.min.js',
+      '../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+      'src/js/assets/blazy.js',
+      'src/js/assets/jquery.ba-dotimeout.js',
+      'src/js/assets/imagesloaded.js',
+      'src/js/assets/packery.js'
+    ])
+    //.pipe(jshint.reporter('default'))
+    .pipe(concat('main.js'))
+    // .pipe(gulp.dest('www/js'))
+    //.pipe(rename({ suffix: '.min' }))
+    //.pipe( gulpif(isBuild,uglify()))
+    .pipe(gulp.dest('src/js'))
+    .pipe( browserSync.reload( {stream:true} ) )
+    // .pipe(notify({ message: 'Scripts task complete' }));
+});
+
+
 gulp.task('scripts', ['copy-scripts'], function() {
   return glob('./src/js/main-**.js', function(err, files) {
     var tasks = files.map(function(entry) {
@@ -140,7 +161,7 @@ gulp.task('scripts', ['copy-scripts'], function() {
 
 
 gulp.task('copy-scripts', function(){
-  return gulp.src(['src/js/pkgd-**.min.js'], {base: "./src/js"})
+  return gulp.src(['src/js/pkgd-**.min.js','src/js/assets'], {base: "./src/js"})
     .pipe(gulp.dest( buildDest+'/js' ));
 });
 

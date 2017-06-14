@@ -1,59 +1,61 @@
 // TILES
+require('packery');
+require('dotimeout');
 
 (function ($) {
 
-  if ($('.gb-tile').length){
-    
-    var o = $('.gb-main-content');
+  $( document ).on( 'post-load', function () {
+    $.initWall();
+  });
 
-    o.imagesLoaded( function() {
-      initWall();
-      $.doTimeout( 500, function(){
-        o.addClass('in');
-      });
+  $.initWall = function(){
+
+    require('blazy');
+
+    var bLazy = new Blazy({
+      selector: '.gb-content-posts .lazy',
+      successClass: 'lazy--loaded',
+      loadInvisible: true
     });
 
+    var o = $('.gb-main-content');
 
-    //require('masonry');
-    require('packery');
-    //require('dotimeout');
+    o.each(function(){
+      var e = $(this);
+      console.log(e);
+    });
 
-    function initWall(){
+    $.wallMasonry = o.packery({
+      itemSelector: '.gb-tile',
+      percentPosition: true,
+      transitionDuration: 0.5,
+      //horizontalOrder: true,
+      gutter: 0
+    });
 
-      o.each(function(){
-        var e = $(this);
-        console.log(e);
+  }
 
+  $.loadMoreBricks = function(newItems){
+
+    // add the new set of tiles
+    $.wallMasonry.packery({
+      transitionDuration: 0
+      //initLayout: false
+    }).append(newItems).packery('addItems',newItems);
+
+
+    $.doTimeout( 200, function(){
+      $.wallMasonry.packery('layout');
+      $.wallMasonry.packery({
+        transitionDuration: 0
       });
+    });
+  }
 
-      //$.wallMasonry = $('.wall').masonry({
-      $.wallMasonry = o.packery({
-        itemSelector: '.gb-tile',
-        percentPosition: true,
-        transitionDuration: 0,
-        //horizontalOrder: true,
-        gutter: 0
-      });
 
-      /*
-      $('.wall__brick--expandable').on('click', function(){
-        var trgt = $(this).data('target');
-        $(trgt).toggleClass('hide').siblings('.wall__brick--expansion').addClass('hide');
-        //$.wallMasonry.masonry('layout');
-        $.wallMasonry.packery('layout');
-      });
 
-      $('.brick--image').each(function(){
-        var e = $(this);
-        var imgSrc = e.find('img').prop('src');
-        e.css({
-          'background-image' : 'url('+imgSrc+')'
-        });
-      });
-      */
-
-    }
-
+  if ($('.gb-tile').length){
+    $.initWall();
   }
 
 

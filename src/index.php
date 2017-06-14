@@ -39,8 +39,9 @@ get_header(); ?>
 						</div><!-- /input-group -->
 					</div>
 					<div style="clear:both"></div>
-					<div class="gb-main-content gb-content-posts col-md-12">
 
+					<!-- infinite scroll load more -->
+					<div class="post-listing">
 						<?php if ( have_posts() ) : ?>
 
                             <?php /* Start the Loop */ ?>
@@ -65,7 +66,14 @@ get_header(); ?>
                         <?php endif; ?>
 
 
-					</div><!--- main content --->
+					</div>
+
+					<div style="clear:both"></div>
+
+					<!-- disable this post list -->
+
+
+					<!--- main content --->
 
 					<?php
 					//load the new straight, modified builds listings
@@ -144,7 +152,7 @@ get_header(); ?>
 					$wp_query = new WP_Query( $args );
 
 					if (have_posts()):?>
-					<div class="gb-main-content gb-new-model-kits remove-padding-left col-xs-12 col-sm-12 col-lg-3">
+					<div class="gb-main-content gb-new-model-kits remove-padding-left col-xs-12 col-sm-12 col-lg-3 hide">
 						<div class="gb-post-list-alt">
 						<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 						<?php get_template_part( 'content', 'model-preview' ); ?>
@@ -153,7 +161,9 @@ get_header(); ?>
 					</div> <!-- gb-content-models --->
 					<?php endif; ?>
 					<?php $wp_query = null; $wp_query = $temp;?>
+
 				</div><!-- row --->
+
 			</div><!-- gb-content-area end -->
 
 			<!-- gb-sidebar begin -->
