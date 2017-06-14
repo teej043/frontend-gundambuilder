@@ -9,24 +9,19 @@ var gulp = require('gulp'),
   runSequence = require('run-sequence'),
   minifyCSS = require('gulp-minify-css'),
   uglify = require('gulp-uglify'),
+  gulpif = require('gulp-if'),
   notify = require('gulp-notify'),
   autoprefixer = require('gulp-autoprefixer'),
   sourcemaps = require('gulp-sourcemaps'),
   fileinclude = require('gulp-file-include'),
   htmlhint = require('gulp-htmlhint'),
   imagemin = require('gulp-imagemin'),
+  rename = require('gulp-rename'),
   iconfont = require('gulp-iconfont'),
   iconfontcss = require('gulp-iconfont-css'),
   del = require('del');
 
 
-  // BROWSERIFY TOOLS
-  var browserify = require('browserify'),
-      source = require('vinyl-source-stream'),
-      buffer = require('vinyl-buffer'),
-      rename = require('gulp-rename'),
-      merge = require('merge-stream'),
-      es = require('event-stream');
 
 
 var notifyError = function(err, lang) {
@@ -133,56 +128,18 @@ gulp.task('scripts-bundle', function() {
     .pipe(concat('main.js'))
     // .pipe(gulp.dest('www/js'))
     //.pipe(rename({ suffix: '.min' }))
-    //.pipe( gulpif(isBuild,uglify()))
+    .pipe( gulpif(isBuild,uglify()))
     .pipe(gulp.dest('src/js'))
     .pipe( browserSync.reload( {stream:true} ) )
     // .pipe(notify({ message: 'Scripts task complete' }));
 });
 
 
-gulp.task('scripts', ['copy-scripts'], function() {
-  return glob('./src/js/main-**.js', function(err, files) {
-    var tasks = files.map(function(entry) {
-      return browserify({ entries: [entry] },{debug : true})
-        .bundle()
-        .pipe(source(entry))
-        .pipe(buffer())
-        .pipe(uglify({compress: {pure_funcs: [ '' ]}}))
-        //.pipe(inject.prepend('/* \n** Made By EB Warriors '+now.getFullYear()+'\n** Build at: ' + dt + '\n*/ \n'))
-        .pipe(rename({
-          prefix: 'pkgd-',
-          extname: '.min.js'
-        }))
-        .pipe(gulp.dest('.'));
-      });
-    return es.merge.apply(null, tasks);
-  })
-});
-
-
 gulp.task('copy-scripts', function(){
-  return gulp.src(['src/js/pkgd-**.min.js','src/js/assets'], {base: "./src/js"})
+  return gulp.src(['src/js/assets/**'], {base: "./src/js"})
     .pipe(gulp.dest( buildDest+'/js' ));
 });
 
-gulp.task('scripts-build', function() {
-  return glob('./src/js/main-**.js', function(err, files) {
-    var tasks = files.map(function(entry) {
-      return browserify({ entries: [entry] },{debug : false})
-        .bundle()
-        .pipe(source(entry))
-        .pipe(buffer())
-        .pipe(uglify({compress: {pure_funcs: [ 'console.log' ]}}))
-        .pipe(rename({
-          prefix: 'pkgd-',
-          extname: '.min.js'
-        }))
-        //.pipe(gulp.dest('.'));
-        .pipe(gulp.dest( buildDest ));
-      });
-    return es.merge.apply(null, tasks);
-  })
-});
 
 gulp.task('serve', ['sass','html'], function() {
     browserSync({
@@ -288,9 +245,9 @@ gulp.task('default', function () {
   gulp.watch('./src/scss/**/{,*/}*.{scss,sass}', ['sass']);
   gulp.watch('src/html/**/*.html', ['html']);
   gulp.watch('src/**/*.php', ['php']);
-  gulp.watch(['src/main*.js','src/js/assets/*.js','src/js/general/*.js','src/js/custom/**/{,*/}*.js'], ['scripts']);
+  gulp.watch(['src/js/assets/*.js','src/js/general/*.js','src/js/custom/**/{,*/}*.js'], ['copy-scripts']);
 });
 
 gulp.task('build', function(callback) {
-  runSequence('clean', 'html', 'sass-build', 'copy-assets', 'php', 'scripts-build', 'img-optim');
+  runSequence('clean', 'html', 'sass-build', 'copy-assets', 'php', 'img-optim');
 });

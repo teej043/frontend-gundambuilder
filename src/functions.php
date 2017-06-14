@@ -74,7 +74,7 @@ function gndmbldr_setup() {
 	if ( function_exists( 'add_image_size' ) ) {
 		add_image_size( 'homepage-preview-thumb', 420, 280, true ); //(cropped)
 		add_image_size( 'sidebar-half-thumb', 150 );
-    add_image_size( 'micro', 10 );
+    add_image_size( 'micro', 16 );
 	}
 
 	/**

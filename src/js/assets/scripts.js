@@ -20,7 +20,6 @@ var listLazy = new Blazy({
   loadInvisible: true
 });
 
-
 //var o = $('.gb-main-content');
 var o = $('.post-listing');
 
