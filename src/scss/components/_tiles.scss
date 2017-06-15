@@ -25,15 +25,30 @@
 
 
   &.type-post{
-    @include make-xs-column(6);
+    @include make-xs-column(12);
     //@include make-ms-column(6);
-    @include make-sm-column(3);
+    @include make-sm-column(12);
     &.category-hauls{
+      @include make-xs-column(12);
+      //@include make-ms-column(6);
+      @include make-sm-column(6);
+    }
+    &.category-parts{
+      @include make-xs-column(6);
+      //@include make-ms-column(6);
+      @include make-sm-column(6);
+    }
+    &.category-tools{
       @include make-xs-column(6);
       //@include make-ms-column(6);
       @include make-sm-column(3);
     }
-    &.category-parts{
+    &.category-supplies{
+      @include make-xs-column(6);
+      //@include make-ms-column(6);
+      @include make-sm-column(3);
+    }
+    &.category-non-gundam{
       @include make-xs-column(6);
       //@include make-ms-column(6);
       @include make-sm-column(3);
@@ -42,7 +57,22 @@
   &.type-mobile-suit{
     @include make-xs-column(6);
     //@include make-ms-column(6);
+    @include make-sm-column(3);
+  }
+  &.type-model-kit{
+    .gb-tile__content{
+      background-size: contain;
+      background-repeat: repeat;
+      background-position: top;
+    }
+    @include make-xs-column(6);
+    //@include make-ms-column(6);
     @include make-sm-column(6);
+    &.portrait{
+      @include make-xs-column(6);
+      @include make-sm-column(3);
+
+    }
   }
 
   &:nth-last-child(1), &:nth-last-child(2){
@@ -84,6 +114,55 @@
     }
   }
 
+
+  .gb-tile__content{
+    opacity:0;
+  }
+  &.appeared{
+    .gb-tile__content{
+      opacity:1;
+      @include fadeInUp(
+        $duration: 0.5s,
+        $count: 1,
+        $delay: 0s,
+        $function: ease,
+        $fill: both
+      )
+    }
+  }
+
+  .template-content-post-preview{
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    height:auto;
+    background-color: rgba(black,0.9);
+    font-size:1em;
+    color:white;
+    padding:5px;
+    background-clip: content-box;
+  }
+
+
+  .gb-post-title{
+    h1{
+      padding:5px 10px;
+      font-size:2em;
+    }
+  }
+
+  .gb-post-meta-post{
+    display:none;
+    padding:5px 10px;
+    font-size:0.5em;
+  }
+
+  summary{
+    display:none;
+    padding:5px 10px;
+    font-size:0.75em;
+  }
 }
 
 .gb-tile__sizer{

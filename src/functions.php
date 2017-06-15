@@ -177,6 +177,7 @@ function gndmbldr_scripts() {
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/assets/custom.js', array(), '20120206', true );
 
   wp_enqueue_script( 'dotimeout', get_template_directory_uri() . '/js/assets/jquery.ba-dotimeout.js', array('jquery'), '20120206', true );
+  wp_enqueue_script( 'verge', get_template_directory_uri() . '/js/assets/verge.min.js', array(), '20120206', true );
   wp_enqueue_script( 'packery', get_template_directory_uri() . '/js/assets/packery.pkgd.min.js', array('jquery'), '20120206', true );
   wp_enqueue_script( 'tiles', get_template_directory_uri() . '/js/assets/scripts.js', array('jquery'), '20120206', true );
 
@@ -762,7 +763,7 @@ echo '<span class="hidden">'.$template.'</span>';
  */
 function be_ajax_load_more() {
 	$args = isset( $_POST['query'] ) ? array_map( 'esc_attr', $_POST['query'] ) : array();
-	$args['post_type'] = isset( $args['post_type'] ) ? esc_attr( $args['post_type'] ) : ['post','model','mobile-suit'];
+	$args['post_type'] = isset( $args['post_type'] ) ? esc_attr( $args['post_type'] ) : ['post','model','mobile-suit','model-kit'];
 	$args['paged'] = esc_attr( $_POST['page'] );
 	$args['post_status'] = 'publish';
 	ob_start();
