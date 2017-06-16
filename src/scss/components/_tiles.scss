@@ -34,24 +34,49 @@
       @include make-sm-column(6);
     }
     &.category-parts{
-      @include make-xs-column(6);
+      @include make-xs-column(12);
       //@include make-ms-column(6);
       @include make-sm-column(6);
+      &.portrait{
+        @include make-xs-column(6);
+        //@include make-ms-column(6);
+        @include make-sm-column(3);
+      }
     }
     &.category-tools{
-      @include make-xs-column(6);
+      @include make-xs-column(12);
       //@include make-ms-column(6);
-      @include make-sm-column(3);
+      @include make-sm-column(6);
+      &.portrait{
+        @include make-xs-column(6);
+        //@include make-ms-column(6);
+        @include make-sm-column(3);
+      }
     }
     &.category-supplies{
-      @include make-xs-column(6);
+      @include make-xs-column(12);
       //@include make-ms-column(6);
-      @include make-sm-column(3);
+      @include make-sm-column(6);
+      &.portrait{
+        @include make-xs-column(6);
+        //@include make-ms-column(6);
+        @include make-sm-column(3);
+      }
     }
     &.category-non-gundam{
-      @include make-xs-column(6);
+      @include make-xs-column(12);
       //@include make-ms-column(6);
-      @include make-sm-column(3);
+      @include make-sm-column(6);
+      &.portrait{
+        @include make-xs-column(6);
+        //@include make-ms-column(6);
+        @include make-sm-column(3);
+      }
+    }
+    &.category-featured, &.category-modelling, &.category-reviews{
+      summary{
+        display:block;
+      }
     }
   }
   &.type-mobile-suit{
@@ -65,7 +90,7 @@
       background-repeat: repeat;
       background-position: top;
     }
-    @include make-xs-column(6);
+    @include make-xs-column(12);
     //@include make-ms-column(6);
     @include make-sm-column(6);
     &.portrait{
@@ -142,6 +167,9 @@
     color:white;
     padding:5px;
     background-clip: content-box;
+    @include media('<tablet'){
+      font-size:0.5em;
+    }
   }
 
 

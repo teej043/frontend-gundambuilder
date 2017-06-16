@@ -3,6 +3,25 @@
 
 // utilities
 @import "mixins/include-media";
+$breakpoints: (
+  'xs-phone': 321px,
+  'phone': $screen-xs,
+  'phablet': $screen-ms,
+  'tablet': $screen-sm,
+  'desktop': $screen-md,
+  'widescreen': $screen-lg
+);
+
+// keywords
+$media-expressions: (
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
+  'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
+);
 
 //icons and fonts
 @import
