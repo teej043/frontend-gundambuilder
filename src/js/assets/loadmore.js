@@ -1,15 +1,14 @@
-
-
+if ($('.post-listing').length){
 	$('.post-listing').append( '<span class="load-more" style="position:absolute;bottom:0px;left:0px;"></span>' );
 	var button = $('.post-listing .load-more');
 	var page = 2;
 	var loading = false;
 	var scrollHandling = {
-	    allow: true,
-	    reallow: function() {
-	        scrollHandling.allow = true;
-	    },
-	    delay: 400 //(milliseconds) adjust to the highest acceptable value
+			allow: true,
+			reallow: function() {
+					scrollHandling.allow = true;
+			},
+			delay: 400 //(milliseconds) adjust to the highest acceptable value
 	};
 
 	$(window).scroll(function(){
@@ -27,11 +26,11 @@
 				$.post(beloadmore.url, data, function(res) {
 					if( res.success) {
 						//$('.post-listing').append( res.data );
-            loadMoreBricks($(res.data));
+						loadMoreBricks($(res.data));
 						$('.post-listing').append( button );
 						page = page + 1;
 						loading = false;
-            $(document).trigger( 'post-load' );
+						$(document).trigger( 'post-load' );
 					} else {
 						// console.log(res);
 					}
@@ -42,3 +41,4 @@
 			}
 		}
 	});
+}

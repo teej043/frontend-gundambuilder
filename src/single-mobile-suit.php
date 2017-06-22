@@ -89,9 +89,15 @@ get_header(); ?>
 								<!-- VIDEO --->
 								<?php $msvid = get_post_meta($post->ID,'GB_ms-vid',true);
 								if ($msvid != ''){?>
+
+
+
 								<div style="clear:both;"></div>
-								<div class="ms-wrapper-video">
-									<?php echo '<iframe width="420" height="315" src="https://www.youtube.com/embed/'.$msvid.'" frameborder="0" allowfullscreen></iframe>'; ?>
+								<div class="gb-video gb-video--discreet">
+									<div class="gb-video__wrapper">
+										<div class="gb-video__player" data-videoid="<?php echo ''.$msvid.'' ?>"></div>
+									</div>
+									<div class="gb-video__toggler">play</div>	
 								</div>
 								<?php } ?>
 
