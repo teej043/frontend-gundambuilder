@@ -94,11 +94,13 @@ get_header(); ?>
 
 								<div style="clear:both;"></div>
 								<div class="gb-video gb-video--discreet">
+									<img class="gb-video__thumb" src="http://i.ytimg.com/vi/<?php echo ''.$msvid.'' ?>/maxresdefault.jpg" />
 									<div class="gb-video__wrapper">
 										<div class="gb-video__player" data-videoid="<?php echo ''.$msvid.'' ?>"></div>
 									</div>
-									<div class="gb-video__toggler">play</div>	
+									<div class="gb-video__toggler">play</div>
 								</div>
+								<div style="clear:both;"></div>
 								<?php } ?>
 
 								<style>

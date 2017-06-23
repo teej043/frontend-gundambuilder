@@ -41,6 +41,7 @@ get_header(); ?>
                         	<?php //the_title(); ?>
                         </div>
 
+
 						<?php $ind = 0;
 									while ( have_posts() ) : the_post(); ?>
 

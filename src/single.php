@@ -5,7 +5,6 @@
  * @package gndmbldr
  */
 get_header(); ?>
-
 	<main class="gb-main container-fluid template-single">
 		<div class="gb-page row">
 			<aside class="gb-aside-nav col-xs-12 col-sm-2 col-md-12 col-lg-2 visible-sm visible-md visible-lg" style="background:#fff;">

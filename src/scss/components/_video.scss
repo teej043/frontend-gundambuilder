@@ -64,6 +64,16 @@ position:relative;
   min-height:350px;
 }
 
+.gb-video--widescreen{
+	.gb-video__wrapper{
+		padding-bottom: 56.25%; /* 16:9 */
+	}
+}
+
+.gb-video__thumb{
+	display:none;
+}
+
 .gb-video__toggler{
   position: absolute;
   //padding-bottom: 56.25%; /* 16:9 */

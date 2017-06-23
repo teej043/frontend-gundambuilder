@@ -50,7 +50,6 @@
 
 
 </head>
-
 <body <?php body_class(); ?>>
 	<div id="page" class="<?php echo( $template ); ?>">
 		<header class="gb-head gb-hdr clear-fix">
