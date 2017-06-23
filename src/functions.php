@@ -176,10 +176,16 @@ function gndmbldr_scripts() {
 	wp_enqueue_script( 'mfp', get_template_directory_uri() . '/js/assets/jquery.magnific-popup.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/assets/custom.js', array(), '20120206', true );
 
+  // STICKY SIDEBAR
+  wp_enqueue_script( 'stickysidebar', get_template_directory_uri() . '/js/assets/sticky-sidebar.min.js', array('jquery'), '20120206', true );
+  // WALL
   wp_enqueue_script( 'dotimeout', get_template_directory_uri() . '/js/assets/jquery.ba-dotimeout.js', array('jquery'), '20120206', true );
   wp_enqueue_script( 'verge', get_template_directory_uri() . '/js/assets/verge.min.js', array(), '20120206', true );
   wp_enqueue_script( 'packery', get_template_directory_uri() . '/js/assets/packery.pkgd.min.js', array('jquery'), '20120206', true );
   wp_enqueue_script( 'tiles', get_template_directory_uri() . '/js/assets/scripts.js', array('jquery'), '20120206', true );
+
+
+
 
 	/*
 	$object = array(
