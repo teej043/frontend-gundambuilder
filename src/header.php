@@ -47,6 +47,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 <?php wp_head(); ?>
+	<meta name="p:domain_verify" content="973ba085206c4de597f2f91978ff2a48"/>
 
 
 </head>
