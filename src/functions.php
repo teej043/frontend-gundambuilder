@@ -173,10 +173,17 @@ function gndmbldr_scripts() {
 		wp_enqueue_script( 'dropzone', get_template_directory_uri() . '/js/assets/dropzone.min.js', array( 'jquery' ), '20120206', true );
 	}
 
+	// sidebar sticky
+	wp_enqueue_script( 'resize-sensor', get_template_directory_uri() . '/js/assets/ResizeSensor.min.js', array('jquery'), '20120206', true );
+	wp_enqueue_script( 'sticky-sidebar', get_template_directory_uri() . '/js/assets/theia-sticky-sidebar.min.js', array('jquery'), '20120206', true );
+
+
 	wp_enqueue_script( 'mfp', get_template_directory_uri() . '/js/assets/jquery.magnific-popup.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'custom', get_template_directory_uri() . '/js/assets/custom.js', array(), '20120206', true );
 
-  wp_enqueue_script( 'videoplayer', get_template_directory_uri() . '/js/assets/videoplayer.js', array(), '20120206', true );
+	wp_enqueue_script( 'videoplayer', get_template_directory_uri() . '/js/assets/videoplayer.js', array(), '20120206', true );
+	
+
 
   wp_enqueue_script( 'dotimeout', get_template_directory_uri() . '/js/assets/jquery.ba-dotimeout.js', array('jquery'), '20120206', true );
   wp_enqueue_script( 'verge', get_template_directory_uri() . '/js/assets/verge.min.js', array(), '20120206', true );
