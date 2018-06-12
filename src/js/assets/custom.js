@@ -1,6 +1,11 @@
 
 
-
+$(document).ready(function() {
+	$('.gb-aside-nav, .gb-sidebar')
+		.theiaStickySidebar({
+			additionalMarginTop: 30
+		});
+});
 
 
 
