@@ -68,7 +68,7 @@
 				<h1 class="assistive-text section-heading" style="display:none;"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
 				<div class="skip-link screen-reader-text" style="display:none;"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
 
-				<?php wp_nav_menu( array('location' => 'primary' ,'menu' => 'Menu 1','container'=> 'div','container_class' => 'menu gb-menu','menu_class' => 'navi gb-menu__list', )); ?>
+				<?php wp_nav_menu( array('location' => 'primary' ,'menu' => 'Menu 1','container'=> 'div','container_class' => 'menu gb-menu','menu_class' => 'navi gb-menu__list', 'depth' => 2)); ?>
 
 					<!-- SAMPLE MENU HTML GENERATED
 

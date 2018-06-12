@@ -226,13 +226,31 @@ html{
     background-color: silver;
 
     .gb-menu__list{
+      
       li{
         display:block;
         margin:0px;
       }
     }
   }
+
+  .sub-menu{
+    padding-left:0.25em;
+    list-style:none;
+    a{
+      color: darken(white,20);
+    }
+
+    @include media('<widescreen') {
+      display: none;
+    }
+
+    @include media('<tablet') {
+      display: block;
+    }
+	}
 }
+
 
 .gb-menu__list{
   list-style:none;
@@ -250,11 +268,17 @@ html{
       display:inline-block;
       line-height:50px;
       a{
-        color:white!important;
+        color:white;
       }
       + li{
         margin-left:1em;
       }
+    }
+  }
+  @include media('<tablet') {
+    padding-top:1em;
+    li{
+      line-height: 2;
     }
   }
 }
