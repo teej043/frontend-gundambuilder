@@ -15,10 +15,10 @@
 get_header(); ?>
 
 	<main class="gb-main container-fluid">
-		<div class="gb-page row" style="background:#eee;">
-			<aside class="gb-aside-nav col-xs-12 col-sm-2 col-md-12 col-lg-2 visible-sm visible-md visible-lg" style="background:#fff;">
+		<div class="gb-page row">
+			<aside class="gb-aside-nav visible-sm visible-md visible-lg">
 				<div class="row">
-					<nav class="col-md-12 col-lg-12" style="background:#fff;">
+					<nav class="col-md-12 col-lg-12">
 						<ul class="gb-nav-cat">
 							<li><img src="images/logo-mobile-suit-gundam-seed.png" /></li>
 							<li><img src="images/logo-mobile-suit-gundam-unicorn.png" /></li>
@@ -28,10 +28,10 @@ get_header(); ?>
 						</ul>
 					</nav>
 				</div>
-			</aside><!--- gb-aside-nav --->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
+			</aside><!-- gb-aside-nav -->
+			<div class="gb-content-area">
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
+					<div class="col-xs-12 col-sm-12 visible-xs visible-sm">
 						<div class="gb-search input-group input-group-lg input-group-sm">
 						  <input type="text" class="form-control">
 						  <span class="input-group-btn">

@@ -13,9 +13,9 @@ get_header(); ?>
 	<main class="gb-main container-fluid">
 		<div class="gb-page row">
 			<!-- gb-aside-nav begin -->
-			<aside class="gb-aside-nav col-xs-12 col-sm-2 col-md-12 col-lg-2 visible-sm visible-md visible-lg" style="background:#fff;">
+			<aside class="gb-aside-nav visible-sm visible-md visible-lg">
 				<div class="row">
-					<nav class="col-md-12 col-lg-12" style="background:#fff;">
+					<nav class="col-md-12 col-lg-12">
 						<div id="toggle-show-series">Show Mobile Suit Series <span class="caret"></span></div>
 						<ul class="gb-nav-cat show-half">
 							<?php gb_ms_series_list(); ?>
@@ -26,9 +26,9 @@ get_header(); ?>
 			<!--- gb-aside-nav end--->
 
 			<!-- gb-content-area begin -->
-			<div class="gb-content-area col-xs-12 col-sm-10 col-md-9 col-lg-7" style="background:#fff;">
+			<div class="gb-content-area">
 				<div class="row">
-					<div class="col-xs-12 col-sm-12 visible-xs visible-sm" style="background:#fff;">
+					<div class="col-xs-12 col-sm-12 visible-xs visible-sm">
 						<div class="gb-search input-group input-group-lg input-group-sm">
 						  <input type="text" class="form-control">
 						  <span class="input-group-btn">
@@ -114,8 +114,12 @@ get_header(); ?>
                                      */
                                     get_template_part( 'content', 'model-preview' );
 
-																		if (($postCount % 2) == 0){
-																			echo '<div class="clearfix"></div>';
+																		if (($postCount % 2) == 0 ){
+																			echo '<div class="clearfix visible-md hidden-lg"></div>';
+                                                                        }
+                                                                        
+                                                                        if (($postCount % 3) == 0 ){
+																			echo '<div class="clearfix hidden-md visible-lg"></div>';
 																		}
                                 ?>
 
@@ -127,14 +131,14 @@ get_header(); ?>
 
 
 
-					</div><!--- main content --->
+					</div><!-- main content -->
                     <?php else : ?>
             		<div class="gb-main-content col-md-12">
                         <?php get_template_part( 'no-results', 'archive' ); ?>
-            		</div><!--- main content --->
+            		</div><!-- main content -->
                     <?php endif; ?>
 
-				</div><!-- row --->
+				</div><!-- row -->
 
 			</div><!-- gb-content-area end -->
 
@@ -142,7 +146,7 @@ get_header(); ?>
 			<?php get_sidebar(); ?>
 			<!-- gb-sidebar end -->
 
-		</div><!--- gb-page --->
+		</div><!-- gb-page -->
 
 
 <?php

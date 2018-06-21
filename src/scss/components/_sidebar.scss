@@ -1,0 +1,25 @@
+
+
+.gb-sidebar__widget{
+
+  ul{
+    li{
+      border-bottom: 1px solid rgba(black,0.2);
+      + li {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  
+}
+
+
+.gb-sidebar__widget--posts{
+  .post-title{
+    a{
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+}

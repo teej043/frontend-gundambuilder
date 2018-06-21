@@ -2,7 +2,7 @@
 
 h1,h2,h3,h4,h5{
 	text-transform:uppercase;
-  font-family: "Norwester",Helvetica,Arial,sans-serif;
+  font-family: 'Teko', 'Impact', sans-serif;
 }
 
 a:hover{
@@ -12,7 +12,8 @@ a:hover{
 body{
 	padding-top: 50px;
 	padding-bottom:0px;
-	font-family: 'Fira Sans', sans-serif;
+	// font-family: 'Fira Sans', sans-serif;
+	font-family: 'Barlow Condensed', sans-serif;
 }
 
 
@@ -24,6 +25,14 @@ body{
 	.widget-area{
 		.widget{
 			width:100%;
+			ul{
+				li{
+					h2{
+						font-size: 20px;
+						font-weight:400;
+					}
+				}
+			}
 		}
 		.gb-sidebar-model-types-links{
 			text-align:center;
@@ -153,6 +162,16 @@ body{
 
 .gb-post-content{
 	/* wordpress classes */
+
+	h2{
+		font-size:40px;
+		
+	}
+
+	h1,h2,h3{
+		font-weight: 300;
+	}
+
 	padding:20px 0;
 	.aligncenter{
 		margin: 0 auto;
@@ -192,8 +211,9 @@ body{
 		margin: 10px 0;
 	}
 	p{
-		font-size: 15px;
+		font-size: 18px;
 		font-weight: 400;
+
 		/*
     img{
     	width:20%;
@@ -276,7 +296,7 @@ body{
 	}
   h1{
     span{
-      font-family: "Tahoma", arial, sans-serif;
+      font-family: "Barlow Condensed", arial, sans-serif;
       font-weight: normal;
       font-size: 0.5em;
       color: silver;
@@ -350,8 +370,28 @@ body{
 
 
 .gb-page{
+
 	@include media('<widescreen'){
 		padding-top:50px;
+	}
+
+	.gb-aside-nav{
+
+		@include make-xs-column(12);
+		@include make-sm-column(2);
+		@include make-md-column(12);
+		@include make-lg-column(1);
+
+		background-color: white;
+	}
+
+	.gb-content-area{
+		@include make-xs-column(12);
+		@include make-sm-column(10);
+		@include make-md-column(9);
+		@include make-lg-column(8);
+
+		background-color: white;
 	}
 }
 
@@ -556,6 +596,7 @@ body{
 					.post{
 						margin-bottom: 30px;
 						header{
+							/*
 							.gb-post-title{
 								font-size: 16px;
 								h1{
@@ -565,7 +606,9 @@ body{
 										min-height: 2em;
 									}
 								}
+								
 							}
+							*/
 							.gb-post-head-image{
 								height:300px;
 								.bgimg{
@@ -922,7 +965,13 @@ background: #fff;
 	}
 
 	.gb-post-title{
+		font-size:32px;
+		font-weight: 500;
 		text-align:left;
+		h1,h2,h3,h4{
+			font-size: inherit;
+			font-weight: inherit;
+		}
 	}
 
 	.gb-nav-cat{
@@ -1230,9 +1279,12 @@ background: #fff;
 
 
 	/* for inside pages (archive, search) */
+
+	/*
 	.gb-main-content .gb-post-list .post,
 	.gb-main-content .gb-post-list .model,
 	.gb-main-content .gb-post-list-alt .model{ width:100%; }
+	*/
 
 	/* for home page */
 	.home  .gb-main-content .gb-post-list .post{ width:100%; }

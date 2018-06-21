@@ -1,85 +1,150 @@
 <?php
 /**
- * @package gndmbldr
- * Content POST Preview
- */
+* @package gndmbldr
+*/
+
 ?>
+<article id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6 col-lg-4'); ?> >
+  <div class="container-fluid gb-post-container content-category-preview content-preview content-preview--category">
+    <header class="row gb-post-heading">
+      <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+        <h2 style="display:block;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        <span style="font-family:Norwester,Helvetica,Arial,sans-serif;font-size:14px;color:#aaa;"><?php echo(get_post_meta($post->ID,'GB_model-kit-detail-code-name',true));?> <?php echo(get_post_meta($post->ID,'GB_model-kit-detail-alias',true));?></span>
+      </section>
+    </header>
+    <?php
+		$type = $post->post_type;
+		$thumb = get_post_thumbnail_id();
+		switch($type){
+			case "model-kit": $img_url = wp_get_attachment_image_src( $thumb,'large' );break;
+			default: $img_url = wp_get_attachment_image_src( $thumb,'large' );break;
+		}
+		$image = aq_resize( $img_url[0], 300, 150, true ); //resize & crop the image
+		if (isset($img_url)){
+	?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-sm-6'); ?>>
-    <header class="row template-content-category-preview">
-        <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
-            <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-        </section>
+	<?php if ($type == "mobile-suit"){ ?>
+    			<figure class="gb-mobile-suit-art loading">
+  					<img class="b-lazy" data-src="<?php echo($img_url[0]); ?>" src="<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif"/>
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
 
+    <?php }else if ($type == "model-kit"){ ?>
 
-        <section id="gb-post-meta-b" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <p class="gb-post-meta-post">Posted By: <?php echo get_the_author(); ?> | Posted on <?php echo get_the_date(); ?></p>
-        </section>
+				<figure class="gb-model-kit-boxart b-lazy" data-src="<?php echo($img_url[0]); ?>" src="<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif" style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif);">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
 
-        <?php
-			$thumb = get_post_thumbnail_id();
-			//$img_url = wp_get_attachment_url( $thumb,'full' );
-      $img_url = wp_get_attachment_image_src( $thumb, 'large' );
-			//$image = aq_resize( $img_url, 300, 150, true ); //resize & crop the image
-		?>
+    <?php }else{ ?>
 
-		<?php
-			if (has_post_thumbnail($post->ID)){
-		?>
-
-        <figure class="gb-post-head-image col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center" >
-          <div class="bgimg" style="background-image:url(<?php echo($img_url[0]); ?>);"></div>
-        </figure>
-
-		<summary class="lead col-xs-12 col-sm-12 col-md-12 col-lg-12"><?php the_excerpt(); ?></summary>
-
-		<?php } else { ?>
-
-			<summary class="lead col-xs-12 col-sm-12 col-md-12 col-lg-12"><?php the_excerpt(); ?></summary>
+				<figure class="gb-post-head-image b-lazy" data-src="<?php echo($img_url[0]); ?>" src="<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif" style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif);background-size:cover;min-height:200px;">
+          <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+          </div>
 
 		<?php } ?>
 
-    </header>
+
+        	<?php
+			if ($post->post_type == 'mobile-suit'):
+				/*
+				$args = array(
+					'orderby'          => 'post_date',
+					'order'            => 'DESC',
+					'meta_key'         => 'GB_model-kit-base-ms',
+					'meta_value'       => $post->ID,
+					'post_type'        => model-kit,
+					'post_status'      => 'publish',
+				);
+
+				$models = get_posts($args);
+				print_r($models);
+
+				foreach($models as $model){
+					echo '<a href="'.get_permalink($model->ID).'">'.$model->post_title.'</a>';
+				}
+				*/
+
+
+				$msid = ($post->ID);
+				//load the related model kits based on this mobile suit
+				$temp = $wp_query;
+				$wp_query= null;
+
+				$args = array(
+					'post_type' => model-kit,
+					'meta_query' => array(
+					   array(
+						   'key' => 'GB_model-kit-base-ms',
+						   'value' => $msid,
+						   'compare' => 'LIKE'
+						)
+					),
+					'posts_per_page' => -1
+				);
+				//$args = 'post_type=model-kit&meta_key=GB_model-kit-base-ms&meta_value='.$msid;
+
+				$wp_query = new WP_Query( $args );
+
+				//print_r($wp_query);
+
+				if (have_posts()):?>
+        <div class="kits-bar kits-bar--vertical">
+  				<ul class="kits">
+  					<?php while ($wp_query->have_posts()) : $wp_query->the_post();
+  						//$featimg = wp_get_attachment_image_src( get_post_meta($post->ID,'GB_model-kit-imagick-id',true),'medium');
+
+  						$thumb = get_post_thumbnail_id();
+  						$img_url = wp_get_attachment_image_src( $thumb,'medium' );
+
+  						if($img_url == false){
+  							$img_url[0]=get_stylesheet_directory_uri().'/images/logo-ms-unknown.png';
+  						}
+  					?>
+  					<li class="kit" id="rel-mkit-<?php echo($post->ID); ?>"><a href="<?php echo get_permalink($post->ID); ?>"><img src="<?php echo($img_url[0]); ?>" title="<?php echo($post->post_title); ?>" /></a></li>
+  					<?php endwhile; ?>
+  				</ul>
+
+        </div>
+        <div class="indicator-down">&#128315;</div>
+				<?php endif; ?>
+				<?php $wp_query = null; $wp_query = $temp;
+
+			endif;
+		?>
+
+		</figure>
+    <?php } ?>
+
+
+
     <section class="gb-post-content">
+        <summary class="lead"><?php the_excerpt(); ?></summary>
+    </section>
 
-    </section><!--- post content --->
-
-
+    <!-- post content -->
     <footer class="entry-meta">
-		<?php
-            /* translators: used between list items, there is a space after the comma */
-            $category_list = get_the_category_list( __( ', ', 'gndmbldr' ) );
-
-            /* translators: used between list items, there is a space after the comma */
-            $tag_list = get_the_tag_list( '', __( ', ', 'gndmbldr' ) );
-
-            if ( ! gndmbldr_categorized_blog() ) {
-                // This blog only has 1 category so we just need to worry about tags in the meta text
-                if ( '' != $tag_list ) {
-                    $meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gndmbldr' );
-                } else {
-                    $meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gndmbldr' );
-                }
-
-            } else {
-                // But this blog has loads of categories so we should probably display them here
-                if ( '' != $tag_list ) {
-                    $meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gndmbldr' );
-                } else {
-                    $meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gndmbldr' );
-                }
-
-            } // end check for categories on this blog
-
-            printf(
-                $meta_text,
-                $category_list,
-                $tag_list,
-                get_permalink(),
-                the_title_attribute( 'echo=0' )
-            );
-        ?>
-
-        <?php edit_post_link( __( 'Edit', 'gndmbldr' ), '<span class="edit-link">', '</span>' ); ?>
+      <?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>  
+      <?php  /* translators: used between list items, there is a space after the comma */
+	  	$categories_list = get_the_category_list( __( ', ', 'gndmbldr' ) );
+		if ( $categories_list && gndmbldr_categorized_blog() ) : ?>
+      		<span class="cat-links hide"> <?php printf( __( 'Posted in %1$s', 'gndmbldr' ), $categories_list ); ?> </span>
+      <?php endif; // End if categories ?>
+      <?php                    /* translators: used between list items, there is a space after the comma */
+	  	$tags_list = get_the_tag_list( '', __( ', ', 'gndmbldr' ) );
+		if ( $tags_list ) :  ?>
+      	<span class="tags-links"> <?php printf( __( 'Tagged %1$s', 'gndmbldr' ), $tags_list ); ?> </span>
+      <?php endif; // End if $tags_list ?>
+      <?php endif; // End if 'post' == get_post_type() ?>
+      <?php edit_post_link( __( 'Edit', 'gndmbldr' ), '<span class="edit-link">', '</span>' ); ?>
     </footer><!-- .entry-meta -->
-</article>
+   </div><!-- container -->
+ </article>

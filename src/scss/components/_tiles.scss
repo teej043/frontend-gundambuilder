@@ -3,8 +3,17 @@
 
 
 .gb-main-content{
-  padding-left:0px;
-  padding-right:0px;
+  padding-left: 0px;
+  padding-right: $grid-gutter-width/2;
+
+  @include media('<widescreen'){
+    padding-left: $grid-gutter-width/2;
+  }
+
+  @include media('<tablet'){
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .gb-tile{
@@ -162,13 +171,24 @@
     left:0px;
     width:100%;
     height:auto;
-    background-color: rgba(black,0.9);
+    background-color: rgba(black,0.8);
+    //background-blend-mode: multiply;
+    //mix-blend-mode: difference;
     font-size:1em;
     color:white;
     padding:5px;
     background-clip: content-box;
     @include media('<tablet'){
       font-size:0.5em;
+      
+    }
+
+    .gb-post-title{
+      font-size: 16px;
+      a{
+        color: white;
+      }
+      
     }
   }
 
@@ -177,6 +197,10 @@
     h1{
       padding:5px 10px;
       font-size:2em;
+
+      @include media('<desktop'){
+        font-size:1.4em;
+      }
     }
   }
 

@@ -4,8 +4,8 @@
 */
 
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?> >
-  <div class="container-fluid gb-post-container content-model-preview">
+<article id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6 col-lg-4'); ?> >
+  <div class="container-fluid gb-post-container content-model-preview content-preview content-preview--model">
     <header class="row gb-post-heading">
       <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
         <h2 style="display:block;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -16,8 +16,8 @@
 		$type = $post->post_type;
 		$thumb = get_post_thumbnail_id();
 		switch($type){
-			case "model-kit": $img_url = wp_get_attachment_image_src( $thumb,'medium' );break;
-			default: $img_url = wp_get_attachment_image_src( $thumb,'homepage-preview-thumb' );break;
+			case "model-kit": $img_url = wp_get_attachment_image_src( $thumb,'large' );break;
+			default: $img_url = wp_get_attachment_image_src( $thumb,'large' );break;
 		}
 		$image = aq_resize( $img_url[0], 300, 150, true ); //resize & crop the image
 		if (isset($img_url)){
@@ -25,7 +25,7 @@
 
 	<?php if ($type == "mobile-suit"){ ?>
     			<figure class="gb-mobile-suit-art loading">
-  					<img class="b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png"/>
+  					<img class="b-lazy" data-src="<?php echo($img_url[0]); ?>" src="<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif"/>
             <div class="spinner">
               <div class="bounce1"></div>
               <div class="bounce2"></div>
@@ -34,7 +34,7 @@
 
     <?php }else if ($type == "model-kit"){ ?>
 
-				<figure class="gb-model-kit-boxart b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png" style="background-image:url(http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png);">
+				<figure class="gb-model-kit-boxart b-lazy" data-src="<?php echo($img_url[0]); ?>" src="<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif" style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif);">
           <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
@@ -43,7 +43,7 @@
 
     <?php }else{ ?>
 
-				<figure class="gb-post-head-image b-lazy" data-src="<?php echo($img_url[0]); ?>" src="http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png" style="background-image:url(http://localhost/gundambuilder.com/wp-content/themes/_gndmbldr-dev/images/gb-logo.png);background-size:cover;min-height:200px;">
+				<figure class="gb-post-head-image b-lazy" data-src="<?php echo($img_url[0]); ?>" src="<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif" style="background-image:url(<?php echo get_stylesheet_directory_uri() ?>/images/progressbar.gif);background-size:cover;min-height:200px;">
           <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>

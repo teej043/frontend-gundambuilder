@@ -5,7 +5,7 @@
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6'); ?> >
-  <div class="container-fluid gb-post-container content-model-preview">
+  <div class="container-fluid gb-post-container content-model-preview content-preview content-preview--model">
     <header class="row gb-post-heading">
       <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
         <h2 style="display:block;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
