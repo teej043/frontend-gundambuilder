@@ -222,6 +222,9 @@
   padding:0px;
   width:100%;
   height:auto;
+  &.gb-tile__sizer--full{
+    padding-bottom:200px;
+  }
 }
 
 .gb-tile__content{
