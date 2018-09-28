@@ -13,7 +13,7 @@ body{
 	padding-top: 50px;
 	padding-bottom:0px;
 	// font-family: 'Fira Sans', sans-serif;
-	font-family: 'Barlow Condensed', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 
 
@@ -160,12 +160,54 @@ body{
 }
 
 
+.content-preview{
+	.gb-post-head-image{
+		@include aspect-ratio(100,100,'>img');
+	}
+	.gb-post-heading{
+		.gb-post-title{
+			h2{
+				padding: 20px 15px 10px 15px;
+				margin:0;
+				font-family:inherit;
+				font-size: 20px;
+				font-weight: 700;
+				line-height: 25px;
+				text-transform:  none;
+			}
+		}
+	}
+	.gb-post-content{
+		margin:0;
+		padding:0;
+		.lead{
+			padding: 10px 15px 20px 15px;
+			margin:0;
+			p{
+				font-size:15px;
+				font-weight:300;
+				color:#757575;
+			}
+		}
+	}
+}
+
 .gb-post-content{
 	/* wordpress classes */
+	font-size: 18px;
+	
+	.ad-inserter-article-element{
+		margin-top:3em;
+		margin-bottom:2em;
+	}
 
 	h2{
 		font-size:40px;
 		
+	}
+
+	p{
+
 	}
 
 	>img{
@@ -176,10 +218,16 @@ body{
     margin-bottom: 40px;
 	}
 
-	h1,h2,h3{
+	h1,h2,h3,h4{
 		font-weight: 300;
 		margin-top: 1.2em;
     margin-bottom: 0.8em;
+	}
+
+	ul,ol{
+		li{
+			font-size: inherit;
+		}
 	}
 
 	.wp-caption{

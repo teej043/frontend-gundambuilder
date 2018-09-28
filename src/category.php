@@ -121,6 +121,16 @@ get_header(); ?>
 														?>
 
 												<?php endwhile; // end of the loop. ?>
+												
+												
+
+												<?php if (function_exists ('adinserter')) { ?>
+													<article id="post-1597" class="col-sm-12 col-md-6 col-lg-4 post type-post">
+														<div class="container-fluid gb-post-container content-category-preview content-preview content-preview--category">
+															<?php echo adinserter (2); ?>
+														</div>
+													</article>
+												<?php } ?>
 						
 												<div style="clear:both"></div>
 												<?php bootstrap_pagination();?>

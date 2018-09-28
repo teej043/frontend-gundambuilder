@@ -6,12 +6,6 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class('col-sm-12 col-md-6 col-lg-4'); ?> >
   <div class="container-fluid gb-post-container content-category-preview content-preview content-preview--category">
-    <header class="row gb-post-heading">
-      <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
-        <h2 style="display:block;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <span style="font-family:Norwester,Helvetica,Arial,sans-serif;font-size:14px;color:#aaa;"><?php echo(get_post_meta($post->ID,'GB_model-kit-detail-code-name',true));?> <?php echo(get_post_meta($post->ID,'GB_model-kit-detail-alias',true));?></span>
-      </section>
-    </header>
     <?php
 		$type = $post->post_type;
 		$thumb = get_post_thumbnail_id();
@@ -125,6 +119,12 @@
     <?php } ?>
 
 
+		<header class="row gb-post-heading">
+      <section class="gb-post-title col-xs-12 col-sm-12 col-md-12 col-lg-12" style="">
+        <h2 style="display:block;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+        <span style="font-family:Norwester,Helvetica,Arial,sans-serif;font-size:14px;color:#aaa;"><?php echo(get_post_meta($post->ID,'GB_model-kit-detail-code-name',true));?> <?php echo(get_post_meta($post->ID,'GB_model-kit-detail-alias',true));?></span>
+      </section>
+    </header>
 
     <section class="gb-post-content">
         <summary class="lead"><?php the_excerpt(); ?></summary>

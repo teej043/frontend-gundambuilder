@@ -2,6 +2,7 @@
 @import "variables";
 
 // utilities
+@import "mixins/aspect-ratio";
 @import "mixins/include-media";
 $breakpoints: (
   'xs-phone': 321px,

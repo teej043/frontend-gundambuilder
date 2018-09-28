@@ -45,7 +45,7 @@
 					</form>
 
 
-					<!---
+					<!--
 					<form role="search" method="get" id="searchformx" action="<?php bloginfo('home'); ?>">
 					  <div>
 						<input type="text" value="" name="s" id="s" />
@@ -78,7 +78,7 @@
 					</div>
 					</form>
 
-					--->
+					-->
 
 				</div>
 
@@ -123,7 +123,22 @@
 					</ul>
 				</aside>
 
-
+					<div class="widget gb-sidebar-ads">
+                	<ul>
+						<li style="padding:10px;background:#fff;">
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- gundambuilder-sidebar -->
+							<ins class="adsbygoogle"
+									style="display:block"
+									data-ad-client="ca-pub-0525167998828307"
+									data-ad-slot="6496555018"
+									data-ad-format="auto"
+									data-full-width-responsive="true"></ins>
+							<script>
+							(adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
+						</li>
+						</div>
 
                 <div class="widget gb-sidebar-featured-kits container-fluid">
                 	<h2>Featured Models</h2>
@@ -161,39 +176,31 @@
                             </li>
                         	<?php endwhile; ?>
                         <?php endif; ?>
-                        <?php $wp_query = null; $wp_query = $temp;?>
+                        <?php $wp_query = null; $wp_query = $temp; ?>
                     </ul>
                 </div>
 				<div style="clear:both;"></div>
                 <hr />
+
+	
                 <div class="widget gb-sidebar-ads">
-                	<ul>
+								<ul>
 						<li style="padding:10px;background:#fff;">
-							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- gundambuilder-sidebar-2 -->
-							<ins class="adsbygoogle"
-							     style="display:block"
-							     data-ad-client="ca-pub-0525167998828307"
-							     data-ad-slot="7297133815"
-							     data-ad-format="auto"></ins>
-							<script>
-							(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</li>
-						<li style="padding:10px;background:#fff;">
-							<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-							<!-- gundambuilder-sidebar -->
-							<ins class="adsbygoogle"
-									 style="display:block"
-									 data-ad-client="ca-pub-0525167998828307"
-									 data-ad-slot="6496555018"
-									 data-ad-format="auto"></ins>
-							<script>
-							(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
+						<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+						<!-- gundambuilder-sidebar-2 -->
+						<ins class="adsbygoogle"
+								style="display:block"
+								data-ad-client="ca-pub-0525167998828307"
+								data-ad-slot="7297133815"
+								data-ad-format="auto"
+								data-full-width-responsive="true"></ins>
+						<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+						</script>
 						</li>
                     </ul>
                 </div>
+								
 
 
 
@@ -217,4 +224,4 @@
                 <?php endif; // end sidebar widget area ?>
                 <?php //get_template_part( 'sponsors' ); ?>
 			</div>
-		</section><!--- /GB-SIDEBAR ---->
+		</section><!-- /GB-SIDEBAR -->
