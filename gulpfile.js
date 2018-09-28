@@ -42,6 +42,29 @@ var fontName = 'Icons';
 var buildDest = '../gundambuilder.com/wp-content/themes/_gndmbldr-dev';
 var remote = '/public_html/gundambuilder.com/wp-content/themes/_gndmbldr';
 
+var remote = {
+  'live' : {
+    'ftp' :{
+      host:     '198.54.116.216',
+      user:     'teej043@tradnux.com',
+      password: 'UhcEy8ScHzWdEpPJ',
+      parallel: 5,
+      log:      gutil.log
+    },
+    'folder' : '/public_html/gundambuilder.com/wp-content/themes/_gndmbldr'
+	},
+  'dev' : {
+    'ftp' : {
+      host:     '198.54.116.216',
+      user:     'teej043@tradnux.com',
+      password: 'UhcEy8ScHzWdEpPJ',
+      parallel: 5,
+      log:      gutil.log
+    },
+    'folder' : '/public_html/gundambuilder.com/wp-content/themes/_gndmbldr'
+	}
+};
+
 gulp.task('html', function() {
   return gulp.src('src/html/templates/*.html')
     .pipe(fileinclude({
@@ -254,30 +277,28 @@ gulp.task('default', function () {
 });
 
 
+
+
+var filesToUpload = [
+  buildDest + '/*.ico',
+  buildDest + '/*.png',
+  buildDest + '/*.php',
+  buildDest + '/*.css',
+  buildDest + '/css/**',
+  buildDest + '/js/assets/**',
+  buildDest + '/inc/*.php',
+  buildDest + '/fonts/**',
+  buildDest + '/images/**'
+];
+
 gulp.task('deploy-ftp', function () {
-  var conn = ftp.create( {
-		host:     '198.54.116.216',
-		user:     'teej043@tradnux.com',
-		password: 'UhcEy8ScHzWdEpPJ',
-		parallel: 5,
-		log:      gutil.log
-	} );
-	var globs = [
-    buildDest + '/*.ico',
-    buildDest + '/*.png',
-    buildDest + '/*.php',
-    buildDest + '/*.css',
-    buildDest + '/css/**',
-    buildDest + '/js/assets/**',
-    buildDest + '/inc/*.php',
-    buildDest + '/fonts/**',
-    buildDest + '/images/**'
-	];
+  var conn = ftp.create( remote.dev.ftp );
+	var globs = filesToUpload;
 	// using base = '.' will transfer everything to /public_html correctly
 	// turn off buffering in gulp.src for best performance
 	return gulp.src( globs, { base: buildDest, buffer: false } )
-		.pipe( conn.newerOrDifferentSize( remote ) ) // only upload newer files
-		.pipe( conn.dest( remote ) );
+		.pipe( conn.newerOrDifferentSize( remote.dev.folder ) ) // only upload newer files
+		.pipe( conn.dest( remote.dev.folder ) );
 })
 
 
