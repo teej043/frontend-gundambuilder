@@ -4,6 +4,10 @@
  *
  * @package gndmbldr
  */
+
+// Google Recaptcha
+wp_enqueue_script('google-recaptcha', 'https://www.google.com/recaptcha/api.js');
+
 get_header(); ?>
 	<main class="gb-main container-fluid template-single">
 		<div class="gb-page row">
