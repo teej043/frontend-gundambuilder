@@ -7,7 +7,7 @@ var gulp = require('gulp'),
   watch = require('gulp-watch'),
   concat = require('gulp-concat'),
   runSequence = require('run-sequence'),
-  minifyCSS = require('gulp-minify-css'),
+  cleanCSS = require('gulp-clean-css'),
   uglify = require('gulp-uglify'),
   gulpif = require('gulp-if'),
   notify = require('gulp-notify'),
@@ -106,7 +106,7 @@ gulp.task('sass-build', function() {
       browsers: ['ie 9', 'Android 3', 'firefox 20', 'last 2 versions'],
       cascade: false
     }))
-    .pipe(minifyCSS())
+    .pipe(cleanCSS())
     .pipe(gulp.dest( buildDest + '/css/'));
 });
 
@@ -291,7 +291,7 @@ var filesToUpload = [
   buildDest + '/images/**'
 ];
 
-gulp.task('deploy-ftp', function () {
+gulp.task('deploy-ftp', ['sass-build','php'], function () {
   var conn = ftp.create( remote.dev.ftp );
 	var globs = filesToUpload;
 	// using base = '.' will transfer everything to /public_html correctly
