@@ -7,6 +7,11 @@ h1,h2,h3,h4,h5{
 
 a:hover{
 	text-decoration:none;
+
+}
+
+a:hover, a:focus {
+	color: #337ab7;
 }
 
 body{
@@ -174,6 +179,12 @@ body{
 				font-weight: 700;
 				line-height: 25px;
 				text-transform:  none;
+				a{
+					&:hover,
+					&:focus{
+						text-decoration: underline;
+					}
+				}
 			}
 		}
 	}
@@ -210,7 +221,7 @@ body{
 
 	}
 
-	>img{
+	img, a > img{
 		display:block;
 		max-width:100%;
 		height: auto;
@@ -231,6 +242,8 @@ body{
 	}
 
 	.wp-caption{
+		width:auto!important;
+		max-width:100%!important;
 		img{
 			width:auto!important;
 			max-width:100%!important;
