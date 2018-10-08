@@ -72,4 +72,25 @@ function my_post_gallery($output, $attr) {
 
 /*-- CUSTOM GALLERY END--*/
 
+/*-- CUSTOM IMAGE LINKS --*/
+function add_class_to_image_links($html, $attachment_id, $attachment) {
+    $linkptrn = "/<a[^>]*>/";
+    $found = preg_match($linkptrn, $html, $a_elem);
+    // If no link, do nothing
+    if($found <= 0) return $html;
+    $a_elem = $a_elem[0];
+    // Check to see if the link is to an uploaded image
+    $is_attachment_link = strstr($a_elem, "wp-content/uploads/");
+    // If link is to external resource, do nothing
+    if($is_attachment_link === FALSE) return $html;
+    if(strstr($a_elem, "class=\"") !== FALSE){ // If link already has class defined inject it to attribute
+        $a_elem_new = str_replace("class=\"", "class=\"mfp-image-popup", $a_elem);
+        $html = str_replace($a_elem, $a_elem_new, $html);
+    }else{ // If no class defined, just add class attribute
+        $html = str_replace("<a ", "<a class=\"mfp-image-popup\" ", $html);
+    }
+    return $html;
+}
+add_filter('image_send_to_editor', 'add_class_to_image_links', 10, 3);
+
 ?>

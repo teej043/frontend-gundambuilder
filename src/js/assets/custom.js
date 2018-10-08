@@ -246,6 +246,11 @@ $(window).load(function(){
 			});
 		}
 
+		$('.mfp-image-popup').magnificPopup({
+			type: 'image',
+			titleSrc: 'title'
+		});
+
 
 
 	});
